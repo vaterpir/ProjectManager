@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
@@ -11,25 +11,9 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.js', '.scss', '.css'],
     alias: {
-      Fonts: path.resolve(__dirname, 'fonts/'),
+      Image: path.resolve('src/images'), //
     },
   },
-  devServer: {
-    index: 'index.html',
-    contentBase: path.resolve(__dirname, 'dist'),
-    open: true,
-    clientLogLevel: 'silent',
-    port: 9000,
-    host: '192.168.0.6',
-    hot: true,
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-      title: 'Project Manager',
-    }),
-  ],
   module: {
     rules: [
       {
@@ -75,8 +59,12 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'file-loader',
         options: {
-          outputPath: 'images',
+          name: '[path][name].[ext]',
         },
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -84,9 +72,24 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
-          outputPath: 'fonts/',
         },
       },
     ],
   },
+  devServer: {
+    index: 'index.html',
+    contentBase: path.resolve(__dirname, 'dist'),
+    open: true,
+    clientLogLevel: 'silent',
+    port: 3000,
+    /* host: '0.0.0.0', */
+    hot: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/public/index.html',
+      filename: './index.html',
+      title: 'Project Manager',
+    }),
+  ],
 };
