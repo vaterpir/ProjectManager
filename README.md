@@ -6,7 +6,11 @@ Project manager
 
 ___
 
-```
-$ npm install
-$ Build: npm run build
-```
+### Installation
+``` $ npm install ```
+
+### Building
+``` $ npm run build ```
+
+### Start
+``` $ npm start ```
