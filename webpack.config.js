@@ -11,7 +11,7 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.js', '.scss', '.css'],
     alias: {
-      Image: path.resolve('src/images'), //
+      images: path.resolve('src/images'), //
     },
   },
   module: {
@@ -87,7 +87,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/public/index.html',
+      template: './src/index.html',
       filename: './index.html',
       title: 'Project Manager',
     }),
