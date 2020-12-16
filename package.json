@@ -13,7 +13,7 @@
     "url": "git+https://github.com/vaterpir/ProjectManager.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vadim Lobanov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vaterpir/ProjectManager/issues"
@@ -42,7 +42,6 @@
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
-    "styled-components": "^5.2.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"

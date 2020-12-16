@@ -4,20 +4,14 @@
 }
 .header :global {
   background: #854c30;
-  margin: 10px;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 100px;
 
   box-shadow: inset -3px -3px 0px #442434, inset 3px 3px 0px #d27d2c;
 
   .title {
-    min-height: 60px;
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
-    margin: 0;
     font-family: 'Small Pixel7';
     font-size: 48px;
     color: #d27d2c;
@@ -26,7 +20,6 @@
 
   .search {
     background: #acacac;
-    height: 30px;
     margin: 0;
     padding: 0 5px;
     font-size: 24px;
@@ -41,11 +34,8 @@
     input {
       width: auto;
       background: #00000000;
-      height: 100%;
       border: 0px solid #000;
       outline: none;
-      padding: 0;
-      margin: 0;
     }
 
     .label {
@@ -57,8 +47,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0;
-      padding: 0;
     }
 
     .searchIcon {

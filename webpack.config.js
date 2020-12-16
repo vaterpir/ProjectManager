@@ -63,10 +63,6 @@ module.exports = {
         },
       },
       {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      },
-      {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         exclude: /node_modules/,
         loader: 'file-loader',
@@ -82,7 +78,6 @@ module.exports = {
     open: true,
     clientLogLevel: 'silent',
     port: 3000,
-    /* host: '0.0.0.0', */
     hot: true,
   },
   plugins: [
