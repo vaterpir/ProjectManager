@@ -1,6 +1,7 @@
 # ProjectManager
 
-Project manager
+Project Manager is an application that allows you to monitor projects, track the status of completion of tasks, mark the importance of the task with the help of colored labels.
+There is a convenient search with a filter by color labels.
 
 ## Getting Started
 
