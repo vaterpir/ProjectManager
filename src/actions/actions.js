@@ -5,6 +5,12 @@ export const addBord = (title) => ({
   title,
 });
 
+export const changeNameBoard = (id, text) => ({
+  type: ADD_BOARD,
+  text,
+  id,
+});
+
 export const deleteBord = (id) => ({
   type: ADD_BOARD,
   id,
@@ -13,6 +19,18 @@ export const deleteBord = (id) => ({
 export const addCard = (title) => ({
   type: ADD_BOARD,
   title,
+});
+
+export const changeNameCard = (id, text) => ({
+  type: ADD_BOARD,
+  text,
+  id,
+});
+
+export const changeDescriptionCard = (id, text) => ({
+  type: ADD_BOARD,
+  text,
+  id,
 });
 
 export const deleteCard = (id) => ({
@@ -25,6 +43,12 @@ export const addChecklist = (title) => ({
   title,
 });
 
+export const changeNameChecklist = (id, text) => ({
+  type: ADD_BOARD,
+  text,
+  id,
+});
+
 export const deleteChecklist = (id) => ({
   type: ADD_BOARD,
   id,
@@ -35,13 +59,25 @@ export const addTask = (text) => ({
   text,
 });
 
+export const changeStatusTask = (id) => ({
+  type: ADD_BOARD,
+  id,
+});
+
+export const changeNameTask = (id, text) => ({
+  type: ADD_BOARD,
+  id,
+  text,
+});
+
 export const deleteTask = (text) => ({
   type: ADD_BOARD,
   text,
 });
 
-export const addLabelToSearch = () => ({
+export const addLabelToSearch = (id) => ({
   type: ADD_BOARD,
+  id,
 });
 
 export const deleteLabelToSearch = (id) => ({
@@ -49,7 +85,7 @@ export const deleteLabelToSearch = (id) => ({
   id,
 });
 
-export const addTextForSearch = (text) => ({
+export const changeTextForSearch = (text) => ({
   type: ADD_BOARD,
   text,
 });
@@ -62,14 +98,4 @@ export const createColorLabel = (color) => ({
 export const deleteColorLabel = (id) => ({
   type: ADD_BOARD,
   id,
-});
-
-export const changeNameCard = (text) => ({
-  type: ADD_BOARD,
-  text,
-});
-
-export const changeDescriptionCard = (text) => ({
-  type: ADD_BOARD,
-  text,
 });
