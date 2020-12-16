@@ -8,12 +8,12 @@ To start the application, you need to do the following:
 
 ### Installing modules
 
-``` $ npm install ```     -> install all necessary modules according to the package.json file
+``` $ npm install ```   -> install all necessary modules according to the package.json file
 
 ### Building
 
-``` $ npm run build ```   -> building the app
+``` $ npm run build ``` -> building the app
 
 ### Start
 
-``` $ npm start ```       -> starting webpack-dev-server
+``` $ npm start ```     -> starting webpack-dev-server
