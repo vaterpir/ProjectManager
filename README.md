@@ -4,13 +4,16 @@ Project manager
 
 ## Getting Started
 
-___
+To start the application, you need to do the following:
 
-### Installation
-``` $ npm install ```
+### Installing modules
+
+``` $ npm install ```     -> install all necessary modules according to the package.json file
 
 ### Building
-``` $ npm run build ```
+
+``` $ npm run build ```   -> building the app
 
 ### Start
-``` $ npm start ```
+
+``` $ npm start ```       -> starting webpack-dev-server
