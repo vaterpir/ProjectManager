@@ -17,7 +17,17 @@ export const DELETE_LABEL_TO_SEARCH = 'DELETE_LABEL_TO_SEARCH';
 export const CHANGE_TEXT_TO_SEARCH = 'CHANGE_TEXT_TO_SEARCH';
 export const CREATE_COLOR_LABEL = 'CREATE_COLOR_LABEL';
 export const DELETE_COLOR_LABEL = 'DELETE_COLOR_LABEL';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const CHANGE_COMMENT = 'CHANGE_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 export const YELLOW_COLOR = '#BEB85B';
 export const RED_COLOR = '#D04648';
 export const ORANGE_COLOR = '#D04648';
+
+export const TYPE_BOARD = 'COMMENT';
+export const TYPE_CARD = 'COMMENT';
+export const TYPE_CHECKLIST = 'COMMENT';
+export const TYPE_TASK = 'COMMENT';
+export const TYPE_LABEL = 'COMMENT';
+export const TYPE_COMMENT = 'COMMENT';

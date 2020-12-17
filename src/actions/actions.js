@@ -18,6 +18,9 @@ import {
   CHANGE_TEXT_TO_SEARCH,
   CREATE_COLOR_LABEL,
   DELETE_COLOR_LABEL,
+  CHANGE_COMMENT,
+  ADD_COMMENT,
+  DELETE_COMMENT,
 } from '../constants';
 
 export const addBord = (title) => ({
@@ -117,5 +120,21 @@ export const createColorLabel = (color) => ({
 
 export const deleteColorLabel = (id) => ({
   type: DELETE_COLOR_LABEL,
+  id,
+});
+
+export const AddComment = (text) => ({
+  type: ADD_COMMENT,
+  text,
+});
+
+export const ChangeComment = (id, text) => ({
+  type: CHANGE_COMMENT,
+  id,
+  text,
+});
+
+export const deleteComment = (id) => ({
+  type: DELETE_COMMENT,
   id,
 });
