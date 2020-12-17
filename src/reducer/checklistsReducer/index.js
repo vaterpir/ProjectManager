@@ -9,7 +9,7 @@ const initialState = [
   {
     id: 'id checklist',
     type: TYPE_CHECKLIST,
-    tasks: ['id task 1', 'id task 2'],
+    parent: 'card 1',
   },
 ];
 

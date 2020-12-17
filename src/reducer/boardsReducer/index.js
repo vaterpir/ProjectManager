@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import {
   ADD_BOARD,
   CHANGE_NAME_BOARD,
@@ -7,9 +8,9 @@ import {
 
 const initialState = [
   {
-    id: 'id board',
+    id: 'board1',
+    title: 'board1 tytle',
     type: TYPE_BOARD,
-    cards: ['id card 2', 'id card 2'],
   },
 ];
 
@@ -17,10 +18,9 @@ export const boardsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOARD: {
       const board = {
-        id: 'id 2 board',
+        id: uuidv4(),
         type: TYPE_BOARD,
-        name: action.title,
-        cards: [],
+        title: action.title,
       };
       return [...state, board];
     }

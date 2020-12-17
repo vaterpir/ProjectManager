@@ -3,7 +3,28 @@
   padding: 0;
 }
 
-.app {
-  background: #757161;
-  height: 100vh;
+.app :global {
+  background: #000;
+  color: #fff;
+  padding: 10px;
+
+  .boards {
+    width: 50%;
+    padding: 5px;
+    border: 1px solid #fff;
+    margin: 5px;
+    display: inline-block;
+
+    .btnAddCard {
+      margin: 5px;
+      padding: 0px 10px;
+      color: #000;
+    }
+
+    .cards {
+      margin: 5px;
+      padding: 5px;
+      border: 1px solid #fff;
+    }
+  }
 }

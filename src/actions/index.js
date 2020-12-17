@@ -39,9 +39,10 @@ export const deleteBord = (id) => ({
   id,
 });
 
-export const addCard = (title) => ({
+export const addCard = (title, parentId) => ({
   type: ADD_CARD,
   title,
+  parentId,
 });
 
 export const changeNameCard = (id, text) => ({
