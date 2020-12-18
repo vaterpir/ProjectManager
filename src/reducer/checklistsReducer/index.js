@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import {
   ADD_CHECKLIST,
   CHANGE_NAME_CHECKLIST,
@@ -8,6 +9,7 @@ import {
 const initialState = [
   {
     id: 'id checklist',
+    title: 'title checklist',
     type: TYPE_CHECKLIST,
     parent: 'card 1',
   },
@@ -16,7 +18,13 @@ const initialState = [
 export const checklistsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CHECKLIST: {
-      return state;
+      const checklist = {
+        id: uuidv4(),
+        type: TYPE_CHECKLIST,
+        title: action.title,
+        parent: action.parentId,
+      };
+      return [...state, checklist];
     }
 
     case CHANGE_NAME_CHECKLIST: {

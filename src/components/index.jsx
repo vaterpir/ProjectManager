@@ -1,39 +1,29 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addBord } from '../actions';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styles from './app';
-import { Board } from './board';
+import { Main } from './main';
+import { Settings } from './settings';
 
-export const App = () => {
-  const [nameNewBoardInput, setnameNewBoardInput] = useState('');
-  const boards = useSelector((state) => state.boards);
-  const dispatch = useDispatch();
-
-  const handleAddBoard = () => {
-    if (nameNewBoardInput) {
-      dispatch(addBord(nameNewBoardInput));
-      setnameNewBoardInput('');
-    }
-  };
-  const changeValueInputBoard = ({ target }) => {
-    setnameNewBoardInput(target.value);
-  };
-
-  return (
+export const App = () => (
+  <Router>
     <div className={styles.app}>
-      <div className="boards">
-        <input
-          type="text"
-          value={nameNewBoardInput}
-          onChange={changeValueInputBoard}
-        />
-        <button onClick={handleAddBoard} type="button" className="btnAddCard">
-          add board
-        </button>
-      </div>
-      {boards.map((board) => (
-        <Board key={board.id} boardId={board.id} title={board.title} />
-      ))}
+      <nav className="header">
+        <Link to="/">
+          <div>Home</div>
+        </Link>
+        <Link to="/settings">
+          <div>Settings</div>
+        </Link>
+      </nav>
+
+      <Switch>
+        <Route path="/settings">
+          <Settings />
+        </Route>
+        <Route path="/">
+          <Main />
+        </Route>
+      </Switch>
     </div>
-  );
-};
+  </Router>
+);
