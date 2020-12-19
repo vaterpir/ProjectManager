@@ -1,7 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Switch, Route, Link,
+} from 'react-router-dom';
 import styles from './app';
 import { Main } from './main';
+import { AddBoard } from './main/addBoard';
 import { Settings } from './settings';
 
 export const App = () => (
@@ -11,6 +14,7 @@ export const App = () => (
         <Link to="/">
           <div>Home</div>
         </Link>
+        <AddBoard />
         <Link to="/settings">
           <div>Settings</div>
         </Link>

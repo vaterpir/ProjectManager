@@ -1,3 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Board } from './board';
+import styles from './main';
 
-export const Main = () => <div>main</div>;
+export const Main = () => {
+  const boards = useSelector((state) => state.boards);
+  const [focusOnInput, setFocusOnInput] = useState('');
+  return (
+    <div className={styles.main}>
+      <div className="content">
+        {boards.map((board) => (
+          <Board
+            key={board.id}
+            boardId={board.id}
+            title={board.title}
+            focusOnInput={focusOnInput === board.id}
+            setFocusOnInput={setFocusOnInput}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};

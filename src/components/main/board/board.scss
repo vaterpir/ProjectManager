@@ -1,0 +1,27 @@
+.board :global {
+  border: 1px solid #000;
+  border-radius: 7px;
+  padding: 3px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+
+
+
+  /*   input {
+    margin-left: 5px;
+    background: #fff;
+    padding: 0 4px;
+    border: 1px solid #000;
+    border-radius: 7px;
+  }
+  input:focus {
+    background: #eee;
+  } */
+
+  .edit {
+    width: 20px;
+    height: 20px;
+  }
+  
+}

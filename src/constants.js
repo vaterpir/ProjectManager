@@ -31,3 +31,5 @@ export const TYPE_CHECKLIST = 'COMMENT';
 export const TYPE_TASK = 'COMMENT';
 export const TYPE_LABEL = 'COMMENT';
 export const TYPE_COMMENT = 'COMMENT';
+
+export const INPUT_ON_FOCUS = 'FOCUS_ON_INPUT';

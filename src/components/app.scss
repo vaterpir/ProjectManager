@@ -9,7 +9,10 @@
   height: 100vh;
 
   .header {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #333;
 
     a {

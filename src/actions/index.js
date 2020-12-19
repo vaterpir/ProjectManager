@@ -21,22 +21,23 @@ import {
   CHANGE_COMMENT,
   ADD_COMMENT,
   DELETE_COMMENT,
+  INPUT_ON_FOCUS,
 } from '../constants';
 
-export const addBord = (title) => ({
+export const addBoard = (title) => ({
   type: ADD_BOARD,
   title,
 });
 
-export const changeNameBoard = (id, text) => ({
+export const changeTitleBoard = (boardId, title) => ({
   type: CHANGE_NAME_BOARD,
-  text,
-  id,
+  title,
+  boardId,
 });
 
-export const deleteBord = (id) => ({
+export const deleteBoard = (boardId) => ({
   type: DELETE_BOARD,
-  id,
+  boardId,
 });
 
 export const addCard = (title, parentId) => ({
@@ -138,4 +139,9 @@ export const ChangeComment = (id, text) => ({
 export const deleteComment = (id) => ({
   type: DELETE_COMMENT,
   id,
+});
+
+export const changeInputOnFocus = (inputId) => ({
+  type: INPUT_ON_FOCUS,
+  inputId,
 });
