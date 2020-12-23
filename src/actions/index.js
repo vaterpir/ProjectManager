@@ -3,7 +3,6 @@ import {
   CHANGE_NAME_BOARD,
   DELETE_BOARD,
   ADD_CARD,
-  CHANGE_NAME_CARD,
   CHANGE_DESCRIPTION_CARD,
   DELETE_CARD,
   ADD_CHECKLIST,
@@ -22,6 +21,7 @@ import {
   ADD_COMMENT,
   DELETE_COMMENT,
   INPUT_ON_FOCUS,
+  CHANGE_TITLE_CARD,
 } from '../constants';
 
 export const addBoard = (title) => ({
@@ -46,10 +46,10 @@ export const addCard = (title, parentId) => ({
   parentId,
 });
 
-export const changeNameCard = (id, text) => ({
-  type: CHANGE_NAME_CARD,
-  text,
-  id,
+export const changeTitleCard = (cardId, title) => ({
+  type: CHANGE_TITLE_CARD,
+  title,
+  cardId,
 });
 
 export const changeDescriptionCard = (id, text) => ({
@@ -58,9 +58,9 @@ export const changeDescriptionCard = (id, text) => ({
   id,
 });
 
-export const deleteCard = (id) => ({
+export const deleteCard = (cardId) => ({
   type: DELETE_CARD,
-  id,
+  cardId,
 });
 
 export const addChecklist = (title) => ({

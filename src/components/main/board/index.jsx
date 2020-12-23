@@ -15,6 +15,7 @@ export const Board = ({ boardId = '', title = '' }) => {
   const [switchButtonEdit, setSwitchButtonEdit] = useState(true);
 
   const handleDeleteBoard = () => dispatch(deleteBoard(boardId));
+
   const handleChangeValueTitle = (event) => {
     setTitleBoard(event.target.value);
   };
@@ -60,7 +61,8 @@ export const Board = ({ boardId = '', title = '' }) => {
       <div className="header">
         <div className="wrapper-title">
           <input
-            className="title"
+            type="text"
+            className="titleBoard"
             id={`${boardId}_board_title`}
             value={titleBoard}
             onChange={handleChangeValueTitle}
@@ -88,7 +90,7 @@ export const Board = ({ boardId = '', title = '' }) => {
           </button>
         )}
         <button type="button" className="edit" onClick={handleDeleteBoard}>
-          D
+          X
         </button>
       </div>
       <div className="cards-list">
@@ -96,7 +98,12 @@ export const Board = ({ boardId = '', title = '' }) => {
         {cards
           .filter((card) => card.parent === boardId)
           .map((card) => (
-            <Card key={card.id} title={card.title} boardId={boardId} />
+            <Card
+              key={card.id}
+              title={card.title}
+              cardId={card.id}
+              labels={card.labels}
+            />
           ))}
       </div>
     </div>

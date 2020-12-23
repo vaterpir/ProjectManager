@@ -21,7 +21,7 @@
       justify-content: center;
       margin-right: 5px;
 
-      .title {
+      .titleBoard {
         margin: 0;
         padding-left: 5px;
         height: 24px;
@@ -30,10 +30,10 @@
         outline: none;
         flex: 1;
       }
-      .title:disabled {
+      .titleBoard:disabled {
         background: #eee;
       }
-      .title:focus {
+      .titleBoard:focus {
         margin: 0;
         height: 24px;
         background: #fff;

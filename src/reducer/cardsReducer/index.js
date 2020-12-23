@@ -3,16 +3,16 @@ import {
   ADD_CARD,
   TYPE_CARD,
   DELETE_CARD,
-  CHANGE_NAME_CARD,
+  CHANGE_TITLE_CARD,
 } from '../../constants';
 
 const initialState = [
   {
-    id: uuidv4(),
+    id: 'card 1',
     type: TYPE_CARD,
     title: 'card 1',
     description: 'description card',
-    label: [],
+    labels: ['id label'],
     parent: 'board1',
   },
 ];
@@ -28,16 +28,22 @@ export const cardsReducer = (state = initialState, action) => {
         label: [],
         parent: action.parentId,
       };
-      console.log(card);
       return [...state, card];
     }
 
-    case CHANGE_NAME_CARD: {
-      return state;
+    case CHANGE_TITLE_CARD: {
+      const cards = state.map((card) => {
+        if (card.id === action.cardId) {
+          return { ...card, title: action.title };
+        }
+        return card;
+      });
+      return cards;
     }
 
     case DELETE_CARD: {
-      return state;
+      const cards = state.filter((card) => card.id !== action.cardId);
+      return cards;
     }
 
     default:
