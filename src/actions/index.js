@@ -3,7 +3,6 @@ import {
   CHANGE_NAME_BOARD,
   DELETE_BOARD,
   ADD_CARD,
-  CHANGE_NAME_CARD,
   CHANGE_DESCRIPTION_CARD,
   DELETE_CARD,
   ADD_CHECKLIST,
@@ -18,33 +17,39 @@ import {
   CHANGE_TEXT_TO_SEARCH,
   CREATE_COLOR_LABEL,
   DELETE_COLOR_LABEL,
+  CHANGE_COMMENT,
+  ADD_COMMENT,
+  DELETE_COMMENT,
+  INPUT_ON_FOCUS,
+  CHANGE_TITLE_CARD,
 } from '../constants';
 
-export const addBord = (title) => ({
+export const addBoard = (title) => ({
   type: ADD_BOARD,
   title,
 });
 
-export const changeNameBoard = (id, text) => ({
+export const changeTitleBoard = (boardId, title) => ({
   type: CHANGE_NAME_BOARD,
-  text,
-  id,
+  title,
+  boardId,
 });
 
-export const deleteBord = (id) => ({
+export const deleteBoard = (boardId) => ({
   type: DELETE_BOARD,
-  id,
+  boardId,
 });
 
-export const addCard = (title) => ({
+export const addCard = (title, parentId) => ({
   type: ADD_CARD,
   title,
+  parentId,
 });
 
-export const changeNameCard = (id, text) => ({
-  type: CHANGE_NAME_CARD,
-  text,
-  id,
+export const changeTitleCard = (cardId, title) => ({
+  type: CHANGE_TITLE_CARD,
+  title,
+  cardId,
 });
 
 export const changeDescriptionCard = (id, text) => ({
@@ -53,9 +58,9 @@ export const changeDescriptionCard = (id, text) => ({
   id,
 });
 
-export const deleteCard = (id) => ({
+export const deleteCard = (cardId) => ({
   type: DELETE_CARD,
-  id,
+  cardId,
 });
 
 export const addChecklist = (title) => ({
@@ -118,4 +123,25 @@ export const createColorLabel = (color) => ({
 export const deleteColorLabel = (id) => ({
   type: DELETE_COLOR_LABEL,
   id,
+});
+
+export const AddComment = (text) => ({
+  type: ADD_COMMENT,
+  text,
+});
+
+export const ChangeComment = (id, text) => ({
+  type: CHANGE_COMMENT,
+  id,
+  text,
+});
+
+export const deleteComment = (id) => ({
+  type: DELETE_COMMENT,
+  id,
+});
+
+export const changeInputOnFocus = (inputId) => ({
+  type: INPUT_ON_FOCUS,
+  inputId,
 });

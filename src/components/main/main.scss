@@ -1,0 +1,15 @@
+.main :global {
+  background: #fff;
+  color: #333;
+  padding: 10px;
+
+  .content {
+    display: flex;
+    padding: 5px;
+
+    .board-list {
+      display: flex;
+      padding: 10px;
+    }
+  }
+}

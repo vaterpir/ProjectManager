@@ -2,7 +2,7 @@ export const ADD_BOARD = 'ADD_BOARD';
 export const CHANGE_NAME_BOARD = 'CHANGE_NAME_BOARD';
 export const DELETE_BOARD = 'DELETE_BOARD';
 export const ADD_CARD = 'ADD_CARD';
-export const CHANGE_NAME_CARD = 'CHANGE_NAME_CARD';
+export const CHANGE_TITLE_CARD = 'CHANGE_TITLE_CARD';
 export const CHANGE_DESCRIPTION_CARD = 'CHANGE_DESCRIPTION_CARD';
 export const DELETE_CARD = 'DELETE_CARD';
 export const ADD_CHECKLIST = 'ADD_CHECKLIST';
@@ -17,7 +17,19 @@ export const DELETE_LABEL_TO_SEARCH = 'DELETE_LABEL_TO_SEARCH';
 export const CHANGE_TEXT_TO_SEARCH = 'CHANGE_TEXT_TO_SEARCH';
 export const CREATE_COLOR_LABEL = 'CREATE_COLOR_LABEL';
 export const DELETE_COLOR_LABEL = 'DELETE_COLOR_LABEL';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const CHANGE_COMMENT = 'CHANGE_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 export const YELLOW_COLOR = '#BEB85B';
 export const RED_COLOR = '#D04648';
 export const ORANGE_COLOR = '#D04648';
+
+export const TYPE_BOARD = 'COMMENT';
+export const TYPE_CARD = 'COMMENT';
+export const TYPE_CHECKLIST = 'COMMENT';
+export const TYPE_TASK = 'COMMENT';
+export const TYPE_LABEL = 'COMMENT';
+export const TYPE_COMMENT = 'COMMENT';
+
+export const INPUT_ON_FOCUS = 'FOCUS_ON_INPUT';

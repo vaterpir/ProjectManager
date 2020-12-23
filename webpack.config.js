@@ -11,7 +11,8 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.js', '.scss', '.css'],
     alias: {
-      images: path.resolve('src/images'), //
+      images: path.resolve('src/images'),
+      actions: path.resolve('src/actions'),
     },
   },
   module: {
