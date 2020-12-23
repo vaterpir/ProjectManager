@@ -1,6 +1,15 @@
 .main :global {
   background: #fff;
-  color: black;
+  color: #333;
   padding: 10px;
-  display: flex;
+
+  .content {
+    display: flex;
+    padding: 5px;
+
+    .board-list {
+      display: flex;
+      padding: 10px;
+    }
+  }
 }

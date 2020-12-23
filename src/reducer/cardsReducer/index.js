@@ -28,6 +28,7 @@ export const cardsReducer = (state = initialState, action) => {
         label: [],
         parent: action.parentId,
       };
+      console.log(card);
       return [...state, card];
     }
 

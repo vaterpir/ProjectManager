@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { deleteBoard } from 'actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { Card } from './card';
 import styles from './board';
 import { changeInputOnFocus, changeTitleBoard } from '../../../actions';
+import { AddCard } from './addCard';
 
 export const Board = ({ boardId = '', title = '' }) => {
   const dispatch = useDispatch();
   const inputOnFocus = useSelector((state) => state.inputOnFocus);
+  const cards = useSelector((state) => state.cards);
 
   const [titleBoard, setTitleBoard] = useState(title);
   const [switchButtonEdit, setSwitchButtonEdit] = useState(true);
@@ -16,20 +19,25 @@ export const Board = ({ boardId = '', title = '' }) => {
     setTitleBoard(event.target.value);
   };
 
-  const saveTitleBoard = () => {
-    dispatch(changeTitleBoard(boardId, titleBoard));
+  const handleSaveTitleBoard = () => {
+    if (titleBoard.split(' ').join('')) {
+      dispatch(changeTitleBoard(boardId, titleBoard));
+    }
     setSwitchButtonEdit(true);
     document.getElementById(`${boardId}_board_title`).blur();
   };
 
-  const canselTitleBoard = () => {
+  const handleCanselTitleBoard = () => {
     setTitleBoard(title);
     dispatch(changeInputOnFocus(''));
   };
 
-  const listenerPressKey = (event) => {
+  const handlePressKey = (event) => {
     if (event.which === 13) {
-      saveTitleBoard();
+      handleSaveTitleBoard();
+    }
+    if (event.which === 27) {
+      handleCanselTitleBoard();
     }
   };
 
@@ -49,35 +57,48 @@ export const Board = ({ boardId = '', title = '' }) => {
 
   return (
     <div className={styles.board}>
-      <input
-        className="title"
-        id={`${boardId}_board_title`}
-        value={titleBoard}
-        onChange={handleChangeValueTitle}
-        onKeyDown={listenerPressKey}
-        onBlur={canselTitleBoard}
-        disabled={!(inputOnFocus === `${boardId}_board_title`)}
-      />
+      <div className="header">
+        <div className="wrapper-title">
+          <input
+            className="title"
+            id={`${boardId}_board_title`}
+            value={titleBoard}
+            onChange={handleChangeValueTitle}
+            onKeyDown={handlePressKey}
+            onBlur={handleCanselTitleBoard}
+            disabled={!(inputOnFocus === `${boardId}_board_title`)}
+          />
+        </div>
 
-      {switchButtonEdit ? (
-        <button
-          type="button"
-          className="edit"
-          onMouseDown={handleEditTitleBoard}
-        >
-          E
+        {switchButtonEdit ? (
+          <button
+            type="button"
+            className="edit"
+            onMouseDown={handleEditTitleBoard}
+          >
+            E
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="edit"
+            onMouseDown={handleSaveTitleBoard}
+          >
+            V
+          </button>
+        )}
+        <button type="button" className="edit" onClick={handleDeleteBoard}>
+          D
         </button>
-      ) : (
-        <button type="button" className="edit" onMouseDown={saveTitleBoard}>
-          V
-        </button>
-      )}
-      <input
-        type="button"
-        className="edit"
-        onClick={handleDeleteBoard}
-        value="X"
-      />
+      </div>
+      <div className="cards-list">
+        <AddCard boardId={boardId} />
+        {cards
+          .filter((card) => card.parent === boardId)
+          .map((card) => (
+            <Card key={card.id} title={card.title} boardId={boardId} />
+          ))}
+      </div>
     </div>
   );
 };

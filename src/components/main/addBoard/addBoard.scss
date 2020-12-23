@@ -1,17 +1,25 @@
 .addBoard {
+  background: #000;
   border: 1px solid #fff;
-  padding: 2px;
+  height: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   input {
-    margin-right: 5px;
-    border: 1px solid #fff;
+    text-decoration: none;
+    height: 100%;
+    margin: 0;
+    padding: 0 5px;
+    border-width: 0;
+    outline: none;
   }
 
   button {
-    background: #fff;
-    padding: 0 4px;
-    border: 1px solid #fff;
+    background: #ddd;
+    height: 100%;
+    border-width: 0;
+    padding: 2px 7px;
+    outline: none;
   }
 }

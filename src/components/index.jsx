@@ -10,14 +10,16 @@ import { Settings } from './settings';
 export const App = () => (
   <Router>
     <div className={styles.app}>
-      <nav className="header">
-        <Link to="/">
-          <div>Home</div>
-        </Link>
-        <AddBoard />
-        <Link to="/settings">
-          <div>Settings</div>
-        </Link>
+      <nav className="wraper">
+        <div className="header">
+          <Link to="/">
+            <div className="button">Home</div>
+          </Link>
+          <AddBoard />
+          <Link to="/settings">
+            <div className="button">Settings</div>
+          </Link>
+        </div>
       </nav>
 
       <Switch>

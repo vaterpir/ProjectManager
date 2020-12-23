@@ -9,15 +9,17 @@ export const Main = () => {
   return (
     <div className={styles.main}>
       <div className="content">
-        {boards.map((board) => (
-          <Board
-            key={board.id}
-            boardId={board.id}
-            title={board.title}
-            focusOnInput={focusOnInput === board.id}
-            setFocusOnInput={setFocusOnInput}
-          />
-        ))}
+        <div className="board-list">
+          {boards.map((board) => (
+            <Board
+              key={board.id}
+              boardId={board.id}
+              title={board.title}
+              focusOnInput={focusOnInput === board.id}
+              setFocusOnInput={setFocusOnInput}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

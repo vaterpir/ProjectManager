@@ -4,15 +4,18 @@ import { addBoard } from 'actions';
 import styles from './addBoard';
 
 export const AddBoard = () => {
-  const [newNameBoard, setNewNameBoard] = useState('');
+  const [newTitleBoard, setNewTitleBoard] = useState('');
   const dispatch = useDispatch();
 
-  const changeNameBoard = ({ target }) => {
-    setNewNameBoard(target.value);
+  const changeTitleBoard = ({ target }) => {
+    setNewTitleBoard(target.value);
   };
 
   const handleAddBoard = () => {
-    dispatch(addBoard(newNameBoard));
+    if (newTitleBoard.split(' ').join('')) {
+      dispatch(addBoard(newTitleBoard));
+    }
+    setNewTitleBoard('');
   };
 
   return (
@@ -21,8 +24,8 @@ export const AddBoard = () => {
         type="text"
         name="newBoard"
         id="newBoardInput"
-        value={newNameBoard}
-        onChange={changeNameBoard}
+        value={newTitleBoard}
+        onChange={changeTitleBoard}
       />
       <button type="button" onClick={handleAddBoard}>
         + board
