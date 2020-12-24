@@ -26,7 +26,7 @@ export const cardsReducer = (state = initialState, action) => {
         type: TYPE_CARD,
         title: action.title,
         description: 'description card',
-        label: [],
+        labels: [],
         date: new Date(),
         parent: action.parentId,
       };
