@@ -25,7 +25,7 @@ export const App = () => (
 
       <Switch>
         <Route path="/settings" component={Settings} />
-        <Route path="/profileCard" component={ProfileCard} />
+        <Route path="/profileCard/:id" component={ProfileCard} />
         <Route path="/" component={Main} />
       </Switch>
     </div>

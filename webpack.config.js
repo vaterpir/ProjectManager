@@ -13,6 +13,7 @@ module.exports = {
     alias: {
       images: path.resolve('src/images'),
       actions: path.resolve('src/actions'),
+      styles: path.resolve('src/styles'),
     },
   },
   module: {

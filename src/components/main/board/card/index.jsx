@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { changeTitleCard, changeInputOnFocus, deleteCard } from 'actions';
+import colorLabel from 'styles';
 import styles from './card';
 
 export const Card = ({ cardId = '', title = '', labels = [] }) => {
@@ -59,7 +60,7 @@ export const Card = ({ cardId = '', title = '', labels = [] }) => {
     <div className={styles.card}>
       <div className="wrapper-title">
         {!inputOnFocus ? (
-          <Link className="link" to="/profileCard">
+          <Link className="link" to={`/profileCard/${cardId}`}>
             <input
               type="text"
               className="titleCard"
@@ -88,7 +89,10 @@ export const Card = ({ cardId = '', title = '', labels = [] }) => {
             .filter((label) => labels.indexOf(label.id) !== -1)
             .map((label) => (
               <div
-                className={classNames('colorLabel', label.class)}
+                className={classNames(
+                  colorLabel[label.className],
+                  'colorLabel',
+                )}
                 key={`${label.id}_card_label`}
               >
                 {label.text}
