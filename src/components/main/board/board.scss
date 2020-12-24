@@ -1,7 +1,6 @@
 .board :global {
   border: 1px solid #333;
-  padding: 5px;
-  margin: 5px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -62,5 +61,11 @@
     background: #ccc;
     color: #eee;
     padding: 5px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+  }
+  .cards-list::-webkit-scrollbar {
+    width: 0;
   }
 }

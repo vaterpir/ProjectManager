@@ -1,14 +1,20 @@
 .main :global {
+  flex: 1;
   background: #fff;
   color: #333;
-  padding: 10px;
+  padding: 5px;
+  overflow-x: scroll;
+  scrollbar-width: 0;
 
   .content {
+    height: 100%;
     display: flex;
-    padding: 5px;
 
     .board-list {
       display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
       padding: 10px;
     }
   }
