@@ -1,15 +1,37 @@
 .main :global {
+  flex: 1;
   background: #fff;
   color: #333;
   padding: 10px;
+  scrollbar-width: 0;
 
   .content {
+    height: 100%;
     display: flex;
-    padding: 5px;
+    outline: 1px solid #333;
+    overflow: hidden;
+    overflow-x: scroll;
 
     .board-list {
       display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
       padding: 10px;
     }
+  }
+  ::-webkit-scrollbar {
+    height: 14px;
+    width: 14px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #666;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 2px;
+    border: 0px solid #666;
+    border-width: 3px 0;
   }
 }

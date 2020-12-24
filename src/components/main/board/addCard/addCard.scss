@@ -1,7 +1,11 @@
 .addCard :global {
   display: flex;
   align-items: center;
-  margin: 0 4px;
+  background: #ccc;
+  height: 50px;
+  position: sticky;
+  top: 0;
+  padding: 4px;
 
   .wrapper {
     height: 34px;

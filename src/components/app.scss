@@ -7,6 +7,10 @@ body {
 }
 
 .app :global {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   .wraper {
     padding: 5px;
     background: #333;

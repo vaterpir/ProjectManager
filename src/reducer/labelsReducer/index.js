@@ -8,8 +8,14 @@ const initialState = [
   {
     id: 'id label',
     type: TYPE_LABEL,
-    class: 'blue',
+    className: 'blue',
     text: 'text',
+  },
+  {
+    id: 'id label1',
+    type: TYPE_LABEL,
+    className: 'red',
+    text: '',
   },
 ];
 

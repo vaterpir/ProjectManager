@@ -5,6 +5,7 @@ import {
 import styles from './app';
 import { Main } from './main';
 import { AddBoard } from './main/addBoard';
+import { ProfileCard } from './profileCard';
 import { Settings } from './settings';
 
 export const App = () => (
@@ -23,12 +24,9 @@ export const App = () => (
       </nav>
 
       <Switch>
-        <Route path="/settings">
-          <Settings />
-        </Route>
-        <Route path="/">
-          <Main />
-        </Route>
+        <Route path="/settings" component={Settings} />
+        <Route path="/profileCard/:id" component={ProfileCard} />
+        <Route path="/" component={Main} />
       </Switch>
     </div>
   </Router>

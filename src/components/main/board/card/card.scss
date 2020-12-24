@@ -1,7 +1,7 @@
 .card :global {
   background: #333;
   margin-bottom: 4px;
-  padding: 5px;
+  padding: 8px 5px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -14,23 +14,34 @@
     justify-content: flex-start;
     align-items: flex-start;
 
+    .link {
+      display: inline-block;
+      width: 100%;
+    }
+
     .titleCard {
       width: 100%;
       height: 24px;
       color: #fff;
       outline: none;
       background: #555;
-      border-width: 0px;
+      border: 0px solid #000;
+      border-bottom: 1px solid #555;
       outline: none;
       margin: 0;
       padding: 0;
     }
+    .titleCard:disabled:hover {
+      background: #555;
+      cursor: pointer;
+    }
     .titleCard:disabled {
       background: #333;
-      height: 24px;
+      height: 23px;
       color: #fff;
       margin: 0;
       padding: 0;
+      border-bottom: 1px solid #555;
     }
     .titleCard:focus {
       background: #555;
@@ -47,58 +58,31 @@
 
     .wrapper-colorLabel {
       width: 100%;
+      height: 4px;
+      padding: 2px 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       align-items: flex-start;
+      transition: height 0.2s 0.7s;
 
       .colorLabel {
         text-align: center;
         overflow: hidden;
-        max-height: 4px;
-        min-height: 4px;
+        height: 100%;
         min-width: 14px;
         max-width: 14px;
-        background: #eee;
-        color: #333;
-        margin: 3px;
-        transition: max-height 0.2s, padding 0.2s;
-        padding: 0;
-      }
-
-      .green {
-        background: #6daa2c;
-        color: #fff;
-      }
-      .yellow {
-        background: #beb85b;
-      }
-      .orange {
-        background: #d27d2c;
-        color: #fff;
-      }
-      .red {
-        background: #d04648;
-        color: #fff;
-      }
-      .darkred {
-        background: #442434;
-        color: #fff;
-      }
-      .blue {
-        background: #597dce;
-        color: #fff;
-      }
-      .darkblue {
-        background: #30346d;
-        color: #fff;
+        margin: 2px 3px;
+        transition: padding 0.1s 0.4s, max-width 0.1s 0.4s;
+        border-radius: 3px;
       }
     }
     .wrapper-colorLabel:hover {
+      height: 17px;
       .colorLabel {
-        max-height: 18px;
         padding: 0 5px;
-        max-width: none;
+        min-width: 14px;
+        max-width: 100%;
       }
     }
   }

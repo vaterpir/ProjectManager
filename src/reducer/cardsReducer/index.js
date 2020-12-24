@@ -12,7 +12,8 @@ const initialState = [
     type: TYPE_CARD,
     title: 'card 1',
     description: 'description card',
-    labels: ['id label'],
+    labels: ['id label', 'id label1'],
+    date: new Date(),
     parent: 'board1',
   },
 ];
@@ -26,6 +27,7 @@ export const cardsReducer = (state = initialState, action) => {
         title: action.title,
         description: 'description card',
         label: [],
+        date: new Date(),
         parent: action.parentId,
       };
       return [...state, card];
