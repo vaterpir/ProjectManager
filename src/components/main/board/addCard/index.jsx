@@ -29,10 +29,10 @@ export const AddCard = ({ boardId = '' }) => {
           value={newTitleCard}
           onChange={handleChangeTitleCard}
         />
+        <button type="button" className="add-button" onClick={handleAddCard}>
+          +
+        </button>
       </div>
-      <button type="button" className="add-button" onClick={handleAddCard}>
-        +
-      </button>
     </div>
   );
 };

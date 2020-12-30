@@ -3,9 +3,12 @@ import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 import colorLabel from 'styles';
 import styles from './profileCard';
+import { AddChecklist } from './addChecklist';
+import { Checklist } from './checklist';
 
 export const ProfileCard = ({ match: { params = {} } = {} }) => {
   const { id: cardId = 'card 1' } = params;
+  const checklists = useSelector((state) => state.checklists);
   const cards = useSelector((state) => state.cards);
   const card = cards.filter(({ id }) => id === cardId)[0];
   const labelsAll = useSelector((state) => state.labels);
@@ -27,7 +30,6 @@ export const ProfileCard = ({ match: { params = {} } = {} }) => {
                   key={label.id}
                 >
                   {label.text}
-                  sd
                 </div>
               ))}
           </div>
@@ -35,18 +37,21 @@ export const ProfileCard = ({ match: { params = {} } = {} }) => {
         </div>
 
         <div className="description">
-          <div className="description-title">Description:</div>
+          <h2 className="description-title">Description:</h2>
           <div className="description-text">{description}</div>
         </div>
 
-        <div className="wrapper-addChecklist">
-          <div className="addChecklist-input">
-            <input type="text" name="" id="" />
-          </div>
-          <button type="button" className="addChecklist-button">
-            Добавить ч/л
-          </button>
-        </div>
+        <AddChecklist cardId={cardId} />
+
+        {checklists
+          .filter((checklist) => checklist.parent === cardId)
+          .map((checklist) => (
+            <Checklist
+              key={checklist.id}
+              title={checklist.title}
+              checklistID={checklist.id}
+            />
+          ))}
       </div>
     </div>
   );

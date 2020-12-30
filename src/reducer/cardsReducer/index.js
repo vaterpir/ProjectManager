@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import moment from 'moment';
 import {
   ADD_CARD,
   TYPE_CARD,
@@ -13,7 +14,7 @@ const initialState = [
     title: 'card 1',
     description: 'description card',
     labels: ['id label', 'id label1'],
-    date: new Date(),
+    date: moment().locale('ru').format('DD MMMM YYYY, HH:mm'),
     parent: 'board1',
   },
 ];
@@ -27,7 +28,7 @@ export const cardsReducer = (state = initialState, action) => {
         title: action.title,
         description: 'description card',
         labels: [],
-        date: new Date(),
+        date: moment().locale('ru').format('DD MMMM YYYY, HH:mm'),
         parent: action.parentId,
       };
       return [...state, card];

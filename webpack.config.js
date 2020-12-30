@@ -14,6 +14,7 @@ module.exports = {
       images: path.resolve('src/images'),
       actions: path.resolve('src/actions'),
       styles: path.resolve('src/styles'),
+      helpers: path.resolve('src/helpers'),
     },
   },
   module: {

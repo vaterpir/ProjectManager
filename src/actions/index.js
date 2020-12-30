@@ -63,9 +63,10 @@ export const deleteCard = (cardId) => ({
   cardId,
 });
 
-export const addChecklist = (title) => ({
+export const addChecklist = (title, parentId) => ({
   type: ADD_CHECKLIST,
   title,
+  parentId,
 });
 
 export const changeNameChecklist = (id, text) => ({

@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import styles from './app';
 import { Main } from './main';
-import { AddBoard } from './main/addBoard';
+import { AddBoard } from './addBoard';
 import { ProfileCard } from './profileCard';
 import { Settings } from './settings';
 

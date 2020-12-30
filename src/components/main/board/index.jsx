@@ -1,13 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { deleteBoard } from 'actions';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { changeInputOnFocus, changeTitleBoard, deleteBoard } from 'actions';
+import { Title } from 'helpers/title';
 import { Card } from './card';
 import styles from './board';
-import { changeInputOnFocus, changeTitleBoard } from '../../../actions';
 import { AddCard } from './addCard';
 
 export const Board = ({ boardId = '', title = '' }) => {
-  const dispatch = useDispatch();
+  const cards = useSelector((state) => state.cards);
+  const [titleBoard, setTitleBoard] = useState(title);
+
+  return (
+    <div className={styles.board}>
+      <div className="wrapper">
+        <Title setTitle={setTitleBoard} name={titleBoard} />
+      </div>
+      <AddCard boardId={boardId} />
+      <div className="cards-list">
+        {cards
+          .filter((card) => card.parent === boardId)
+          .map((card) => (
+            <Card
+              key={card.id}
+              title={card.title}
+              cardId={card.id}
+              labels={card.labels}
+            />
+          ))}
+      </div>
+    </div>
+  );
+};
+
+/*
+const dispatch = useDispatch();
   const inputOnFocus = useSelector((state) => state.inputOnFocus);
   const cards = useSelector((state) => state.cards);
 
@@ -54,11 +80,8 @@ export const Board = ({ boardId = '', title = '' }) => {
       setSwitchButtonEdit(true);
       setTitleBoard(title);
     }
-  });
-
-  return (
-    <div className={styles.board}>
-      <div className="header">
+  }); */
+/* <div className="header">
         <div className="wrapper-title">
           <input
             type="text"
@@ -92,20 +115,4 @@ export const Board = ({ boardId = '', title = '' }) => {
         <button type="button" className="edit" onClick={handleDeleteBoard}>
           X
         </button>
-      </div>
-      <div className="cards-list">
-        <AddCard boardId={boardId} />
-        {cards
-          .filter((card) => card.parent === boardId)
-          .map((card) => (
-            <Card
-              key={card.id}
-              title={card.title}
-              cardId={card.id}
-              labels={card.labels}
-            />
-          ))}
-      </div>
-    </div>
-  );
-};
+      </div> */
