@@ -8,6 +8,7 @@
   position: relative;
   margin: 0;
   padding: 0;
+  border-color: inherit;
 
   .input {
     padding-right: 50px;
@@ -34,33 +35,35 @@
   }
 
   .input:focus {
-    color: inherit;
+    background: #333;
+    color: #eee;
     min-height: 24px;
   }
 
-  .button {
+  .buttons {
     position: absolute;
-    right: 24px;
-    top: 0;
-    background: #333;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    border-width: 0;
-    border-radius: 0;
-    outline: none;
-    height: 24px;
-    min-width: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .delete {
-    background: #a33;
-    color: white;
     right: 0;
+    display: flex;
+    top: 0;
+
+    .button {
+      background: #fff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      border: 0px solid #333;
+      border-radius: 0;
+      outline: none;
+      height: 24px;
+      min-width: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .delete {
+      background: #e91e63;
+      color: white;
+    }
   }
 }
-
-/*  */

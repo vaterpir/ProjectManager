@@ -3,15 +3,16 @@ import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import TextareaAutosize from 'react-textarea-autosize';
-import styles from './title.scss';
+import styles from './titleInput.scss';
 // import { textWithoutSpaces } from '../textWithoutSpaces';
 
-export const Title = ({
+export const TitleInput = ({
   name = '',
   setTitle = '',
   actionEdit = {},
   actionDelete = {},
-  openLink = '',
+  parentId = '',
+  openLink = false,
 }) => {
   const dispatch = useDispatch();
   const [disabledInput, setDisabledInput] = useState(true);
@@ -28,7 +29,7 @@ export const Title = ({
     const notEmpty = true; // textWithoutSpaces(name);
     setDisabledInput(true);
     if (notEmpty) {
-      // dispatch(actionEdit);
+      dispatch(actionEdit());
       return;
     }
     setTitle(name);
@@ -51,14 +52,14 @@ export const Title = ({
   };
   const deleteInput = (event) => {
     event.stopPropagation();
-    // dispatch(actionDelete);
+    dispatch(actionDelete(parentId));
   };
 
   // eslint-disable-next-line max-len
   const changeInput = (event) => (disabledInput ? name : setTitle(event.target.value));
 
   const clickOnInput = () => {
-    if (disabledInput) {
+    if (disabledInput && openLink) {
       openLink();
     }
   };
@@ -82,20 +83,22 @@ export const Title = ({
         onClick={clickOnInput}
         placeholder="Без имени"
       />
-      <button
-        type="button"
-        className={classNames('button')}
-        onMouseDown={editInput}
-      >
-        {disabledInput ? 'E' : 'V'}
-      </button>
-      <button
-        type="button"
-        className={classNames('button', 'delete')}
-        onClick={deleteInput}
-      >
-        X
-      </button>
+      <div className="buttons">
+        <button
+          type="button"
+          className={classNames('button')}
+          onMouseDown={editInput}
+        >
+          {disabledInput ? 'E' : 'V'}
+        </button>
+        <button
+          type="button"
+          className={classNames('button', 'delete')}
+          onClick={deleteInput}
+        >
+          X
+        </button>
+      </div>
     </form>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBoard } from 'actions';
+import { AddItemInput } from 'helpers/addItemInput';
 import styles from './addBoard';
 
 export const AddBoard = () => {
@@ -20,7 +20,8 @@ export const AddBoard = () => {
 
   return (
     <div className={styles.addBoard}>
-      <input
+      <AddItemInput />
+      {/*       <input
         type="text"
         name="newBoard"
         id="newBoardInput"
@@ -29,7 +30,7 @@ export const AddBoard = () => {
       />
       <button type="button" onClick={handleAddBoard}>
         + board
-      </button>
+      </button> */}
     </div>
   );
 };

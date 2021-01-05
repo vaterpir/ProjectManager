@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Board } from './board';
 import styles from './main';
+import { AddItemInput } from '../../helpers/addItemInput/addItemInput';
 
 export const Main = () => {
   const boards = useSelector((state) => state.boards);
@@ -10,15 +11,16 @@ export const Main = () => {
     <div className={styles.main}>
       <div className="content">
         <div className="board-list">
-          {boards.map((board) => (
+          {Object.entries(boards).map(([boardId, board]) => (
             <Board
-              key={board.id}
-              boardId={board.id}
+              key={boardId}
+              boardId={boardId}
               title={board.title}
               focusOnInput={focusOnInput === board.id}
               setFocusOnInput={setFocusOnInput}
             />
           ))}
+          <AddItemInput />
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@
   .content {
     height: 100%;
     display: flex;
-    outline: 1px solid #333;
+    outline: 1px solid #ccc;
     overflow: hidden;
     overflow-x: scroll;
 
@@ -33,5 +33,9 @@
     border-radius: 2px;
     border: 0px solid #666;
     border-width: 3px 0;
+  }
+
+  .wrapper-addItem{
+    height: 35px;
   }
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCard } from '../../../../actions';
 import styles from './addCard';
 
 export const AddCard = ({ boardId = '' }) => {
@@ -28,6 +27,7 @@ export const AddCard = ({ boardId = '' }) => {
           className="newCard"
           value={newTitleCard}
           onChange={handleChangeTitleCard}
+          placeholder="Добавить карточку "
         />
         <button type="button" className="add-button" onClick={handleAddCard}>
           +

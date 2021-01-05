@@ -4,7 +4,6 @@ import {
 } from 'react-router-dom';
 import styles from './app';
 import { Main } from './main';
-import { AddBoard } from './addBoard';
 import { ProfileCard } from './profileCard';
 import { Settings } from './settings';
 
@@ -16,7 +15,6 @@ export const App = () => (
           <Link to="/">
             <div className="button">Home</div>
           </Link>
-          <AddBoard />
           <Link to="/settings">
             <div className="button">Settings</div>
           </Link>

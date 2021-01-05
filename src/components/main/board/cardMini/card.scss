@@ -5,7 +5,8 @@
   flex-direction: column;
   flex: 1;
   overflow: hidden;
-  border-radius: 3px;
+  border: 1px solid #333;
+  border-radius: 4px;
 
   .wrapper-card {
     width: 100%;
@@ -13,6 +14,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    border-color: #fff;
 
     .wrapper-colorLabel {
       background: inherit;
@@ -47,7 +49,6 @@
     width: 100%;
 
     .wrapper-colorLabel {
-
       .colorLabel {
         padding: 0 10px 15px 5px;
         margin: 3px 2px;

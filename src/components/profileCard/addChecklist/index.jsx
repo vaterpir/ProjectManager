@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addChecklist } from 'actions';
 import styles from './addChecklist';
 
 export const AddChecklist = ({ cardId = '' }) => {
@@ -9,7 +8,7 @@ export const AddChecklist = ({ cardId = '' }) => {
   const dispatch = useDispatch();
   const handleAddChecklist = () => {
     if (titleChecklist.split(' ').join('')) {
-      dispatch(addChecklist(titleChecklist, cardId));
+      // dispatch(addChecklist(titleChecklist, cardId));
       setTitleChecklist('');
     }
   };

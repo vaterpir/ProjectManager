@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 // import { changeTitleCard, changeInputOnFocus, deleteCard } from 'actions';
 import colorLabel from 'styles';
-import { Title } from 'helpers/title';
+import { TitleInput } from 'helpers/titleInput';
 import { useHistory } from 'react-router-dom';
 import styles from './card';
 
-export const Card = ({ cardId = '', title = '', labels = [] }) => {
+export const CardMini = ({ cardId = '', title = '', labels = [] }) => {
   const dispatch = useDispatch();
   const labelsAll = useSelector((state) => state.labels);
   const [titleCard, setTitleCard] = useState(title);
@@ -21,9 +21,14 @@ export const Card = ({ cardId = '', title = '', labels = [] }) => {
   return (
     <div className={styles.card}>
       <div className="wrapper-card">
-        <Title name={titleCard} setTitle={setTitleCard} openLink={openCard} />
+        <TitleInput
+          name={titleCard}
+          setTitle={setTitleCard}
+          openLink={openCard}
+        />
         <button type="button" className="wrapper-colorLabel" onClick={openCard}>
-          {labelsAll
+          <span className={classNames('colorLabel')}>text</span>
+          {/*           {labelsAll
             .filter((label) => labels.indexOf(label.id) !== -1)
             .map((label) => (
               <span
@@ -35,7 +40,7 @@ export const Card = ({ cardId = '', title = '', labels = [] }) => {
               >
                 {label.text}
               </span>
-            ))}
+            ))} */}
         </button>
       </div>
     </div>
