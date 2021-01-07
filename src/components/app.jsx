@@ -1,10 +1,9 @@
 import React from 'react';
-import {
-  BrowserRouter as Router, Switch, Route, Link,
-} from 'react-router-dom';
-import styles from './app';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import HomeIcon from '@material-ui/icons/Home';
+import styles from './app.scss';
 import { Main } from './main';
-import { ProfileCard } from './profileCard';
+import { CardDetail } from './cardDetail';
 import { Settings } from './settings';
 
 export const App = () => (
@@ -13,7 +12,10 @@ export const App = () => (
       <nav className="wraper">
         <div className="header">
           <Link to="/">
-            <div className="button">Home</div>
+            <div className="button">
+              <HomeIcon />
+              Доски
+            </div>
           </Link>
           <Link to="/settings">
             <div className="button">Settings</div>
@@ -23,7 +25,7 @@ export const App = () => (
 
       <Switch>
         <Route path="/settings" component={Settings} />
-        <Route path="/profileCard/:id" component={ProfileCard} />
+        <Route path="/cardDetail/:id" component={CardDetail} />
         <Route path="/" component={Main} />
       </Switch>
     </div>

@@ -1,0 +1,1 @@
+export { CardMini } from './cardMini';

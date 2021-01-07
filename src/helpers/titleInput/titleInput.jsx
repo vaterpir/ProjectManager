@@ -3,6 +3,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import TextareaAutosize from 'react-textarea-autosize';
+import CloseIcon from '@material-ui/icons/Close';
+import EditIcon from '@material-ui/icons/Edit';
+import CheckIcon from '@material-ui/icons/Check';
 import styles from './titleInput.scss';
 // import { textWithoutSpaces } from '../textWithoutSpaces';
 
@@ -13,6 +16,7 @@ export const TitleInput = ({
   actionDelete = {},
   parentId = '',
   openLink = false,
+  clasName = '',
 }) => {
   const dispatch = useDispatch();
   const [disabledInput, setDisabledInput] = useState(true);
@@ -68,7 +72,7 @@ export const TitleInput = ({
     <form className={styles.title}>
       <TextareaAutosize
         type="text"
-        className={classNames('input', { disabledLink: disabledInput })}
+        className={classNames('input', { disabledLink: disabledInput }, clasName)}
         ref={inputText}
         onBlur={saveInput}
         value={name}
@@ -89,14 +93,18 @@ export const TitleInput = ({
           className={classNames('button')}
           onMouseDown={editInput}
         >
-          {disabledInput ? 'E' : 'V'}
+          {disabledInput ? (
+            <EditIcon className="edit" />
+          ) : (
+            <CheckIcon className="check" />
+          )}
         </button>
         <button
           type="button"
           className={classNames('button', 'delete')}
           onClick={deleteInput}
         >
-          X
+          <CloseIcon className="delete" />
         </button>
       </div>
     </form>

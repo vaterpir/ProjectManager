@@ -17,11 +17,16 @@ export const Board = ({ boardId = '', title = '' }) => {
           actionEdit={editTitleBoard}
           actionDelete={deleteBoard}
           parentId={boardId}
+          clasName="boardTitle"
         />
       </div>
 
       <AddCard boardId={boardId} />
 
+      <CardMini />
+      <CardMini />
+      <CardMini />
+      <CardMini />
       <CardMini />
     </div>
   );

@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
+import PaletteIcon from '@material-ui/icons/Palette';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import styles from './addItemInput.scss';
 
-export const AddItemInput = ({ clasName = '' }) => {
+export const AddItemInput = ({ clasName = 'newBoard' }) => {
   const [valueInput, setValueInput] = useState('');
   const inputElement = useRef(null);
   console.log(clasName);
@@ -28,7 +30,7 @@ export const AddItemInput = ({ clasName = '' }) => {
         placeholder="Новая доска"
       />
       <button type="button" className="button" onClick={addItem}>
-        +
+        <AddBoxIcon />
       </button>
     </div>
   );

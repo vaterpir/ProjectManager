@@ -1,5 +1,6 @@
 .title :global {
   background: inherit;
+  color: inherit;
   display: flex;
   flex: 1;
   align-items: flex-start;
@@ -8,7 +9,9 @@
   position: relative;
   margin: 0;
   padding: 0;
-  border-color: inherit;
+  border: 1px solid #fff;
+  border-width: 1px 1px 0px 1px;
+  border-radius: 4px 4px 0 0;
 
   .input {
     padding-right: 50px;
@@ -27,6 +30,7 @@
       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 600;
+    border-radius: 4px 4px 0 0;
   }
 
   .disabledLink {
@@ -37,33 +41,61 @@
   .input:focus {
     background: #333;
     color: #eee;
-    min-height: 24px;
+    min-height: 28px;
   }
 
   .buttons {
     position: absolute;
     right: 0;
     display: flex;
-    top: 0;
+    top: -1px;
 
     .button {
-      background: #fff;
+      background: inherit;
       color: #333;
       margin: 0;
       padding: 0;
-      border: 0px solid #333;
-      border-radius: 0;
       outline: none;
-      height: 24px;
-      min-width: 24px;
+      height: 28px;
+      min-width: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
 
-    .delete {
-      background: #e91e63;
-      color: white;
+      .edit {
+        width: 18px;
+        height: 18px;
+        fill: darkgrey;
+        stroke: darkgrey;
+      }
+
+      .check {
+        fill: palegreen;
+        stroke: palegreen;
+      }
+
+      .delete {
+        fill: orangered;
+        stroke: orangered;
+      }
+
+      * {
+        background: inherit;
+        width: 24px;
+        height: 24px;
+      }
     }
+    .button:first-child {
+      border: 0px solid #fff;
+    }
+    .button:last-child {
+      border: 1px solid #fff;
+      border-radius: 0 4px;
+      border-width: 0 0px 1px 1px;
+    }
+  }
+
+  .boardTitle {
+    cursor: default;
   }
 }
