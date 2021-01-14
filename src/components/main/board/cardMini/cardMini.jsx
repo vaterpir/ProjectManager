@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
 import { TitleInput } from 'helpers/titleInput';
 import { useHistory } from 'react-router-dom';
 import styles from './cardMini.scss';
@@ -10,7 +9,7 @@ export const CardMini = ({ cardId = '123', title = '' }) => {
   const history = useHistory();
 
   const openCard = () => {
-    history.push(`/cardDetail/${cardId}`);
+    history.push(`/card_detail/${cardId}`);
   };
 
   return (
@@ -21,9 +20,6 @@ export const CardMini = ({ cardId = '123', title = '' }) => {
           setTitle={setTitleCard}
           openLink={openCard}
         />
-        <button type="button" className="wrapper-colorLabel" onClick={openCard}>
-          <span className={classNames('colorLabel')}>text</span>
-        </button>
       </div>
     </div>
   );

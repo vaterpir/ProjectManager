@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Board } from './board';
-import styles from './main';
+import styles from './main.scss';
 import { AddItemInput } from '../../helpers/addItemInput/addItemInput';
 
 export const Main = () => {

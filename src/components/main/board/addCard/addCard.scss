@@ -2,20 +2,19 @@
   display: flex;
   align-items: center;
   background: inherit;
-  height: 50px;
   position: sticky;
   top: 0;
   padding: 4px;
-  border-top: 1px solid #fff;
 
   .wrapper {
-    background: inherit;
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #fff;
-    outline: 1px solid #000;
+    border: 0px solid #fff;
+    outline: 0px solid #000;
+
+
 
     .newCard {
       margin: 0;

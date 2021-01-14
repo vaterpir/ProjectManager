@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import styles from './addCard';
+/* import { useDispatch } from 'react-redux'; */
+import { AddItemInput } from 'helpers/AddItemInput/addItemInput';
+
+import styles from './addCard.scss';
 
 export const AddCard = ({ boardId = '' }) => {
   const [newTitleCard, setNewTitleCard] = useState('');
-  const dispatch = useDispatch();
 
   const handleChangeTitleCard = ({ target }) => {
     setNewTitleCard(target.value);
@@ -12,7 +13,7 @@ export const AddCard = ({ boardId = '' }) => {
 
   const handleAddCard = () => {
     if (newTitleCard.split(' ').join('')) {
-      dispatch(addCard(newTitleCard, boardId));
+      // dispatch(addCard(newTitleCard, boardId));
     }
     setNewTitleCard('');
   };
@@ -20,7 +21,9 @@ export const AddCard = ({ boardId = '' }) => {
   return (
     <div className={styles.addCard}>
       <div className="wrapper">
-        <input
+        <AddItemInput />
+        {/*
+         <input
           type="text"
           name="addCard"
           id="addCard"
@@ -31,7 +34,7 @@ export const AddCard = ({ boardId = '' }) => {
         />
         <button type="button" className="add-button" onClick={handleAddCard}>
           +
-        </button>
+        </button> */}
       </div>
     </div>
   );

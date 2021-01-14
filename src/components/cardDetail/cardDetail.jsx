@@ -1,10 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+/* import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 import colorLabel from 'styles';
-import styles from './cardDetail.scss';
 import { AddChecklist } from './addChecklist';
-import { Checklist } from './checklist';
+import { Checklist } from './checklist'; */
+import styles from './cardDetail.scss';
 
 export const CardDetail = () => (
   <div className={styles.profile}>
