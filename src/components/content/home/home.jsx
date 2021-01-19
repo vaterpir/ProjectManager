@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CloseIcon from '@material-ui/icons/Close';
@@ -9,10 +9,11 @@ import styles from './home.scss';
 
 export const Home = () => {
   const boards = useSelector((state) => state.boards);
-  const [newTitle, setNewTitle] = useState('');
+  const [valueInput, setValueInput] = useState('');
+  const inputElement = useRef(null);
 
-  const changeTitle = (event) => () => {
-    setNewTitle(event.target.value);
+  const editValueInput = () => {
+    setValueInput(inputElement.current.value);
   };
 
   return (
@@ -25,24 +26,24 @@ export const Home = () => {
           {Object.entries(boards).map(([id, content]) => (
             <li className="preview" key={id}>
               <Link to={`/boards/${id}`}>
-                <div className="title">
-                  <TextareaAutosize value={content.title} />
-                </div>
+                <div className="title">{content.title}</div>
               </Link>
               <button type="button" className="delete">
                 <CloseIcon />
               </button>
             </li>
           ))}
-          <li className="preview">
-            <Link to="/home">
-              <div className="title">
-                <TextareaAutosize onChange={changeTitle} value={newTitle} />
-              </div>
-            </Link>
+          <li className="addBoard">
+            <TextareaAutosize
+              type="text"
+              ref={inputElement}
+              value={valueInput}
+              onChange={editValueInput}
+              className="input "
+              placeholder="Введите название доски"
+            />
             <button type="button" className="add">
               <AddIcon />
-              Добавить доску
             </button>
           </li>
         </ul>

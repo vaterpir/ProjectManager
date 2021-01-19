@@ -5,11 +5,13 @@ import styles from './header.scss';
 
 export const Header = () => (
   <div className={styles.header}>
-    <Link to="/home">
-      <div className="title">
-        <ViewModuleIcon />
-        Доски
-      </div>
-    </Link>
+    <div className="linkHeder">
+      <Link to="/home">
+        <div className="title">
+          <ViewModuleIcon />
+          <h3>Доски</h3>
+        </div>
+      </Link>
+    </div>
   </div>
 );
