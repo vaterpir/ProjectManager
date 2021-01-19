@@ -34,20 +34,39 @@
         width: 180px;
         height: 100px;
         position: relative;
+        overflow: hidden;
+        overflow-wrap: break-word;
+        padding-right: 16px;
 
         .title {
-          padding: 4px;
+          padding: 8px;
           border: 0px solid #000;
           width: 100%;
           height: 100%;
+          overflow-y: scroll;
         }
-
+        .title::-webkit-scrollbar {
+          width: 0;
+        }
         .delete {
           background: transparent;
-          display: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin: 0;
+          padding: 0;
+          width: 25px;
+          height: 25px;
+          border: 0px solid #333;
+
           * {
             background: transparent;
-            fill: lightcoral;
+            fill: tomato;
+            stroke: #0000;
+            transition: 0.2s;
           }
         }
       }
@@ -55,22 +74,12 @@
       .preview:hover {
         .delete {
           background: transparent;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin: 0;
-          padding: 0;
           outline: none;
-          border: 0px solid #333;
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 25px;
-          height: 25px;
 
           * {
             background: transparent;
-            fill: lightcoral;
+            stroke: tomato;
+            fill: tomato;
           }
         }
       }
@@ -83,7 +92,7 @@
         border: 1px solid #333;
 
         .input {
-          padding: 4px;
+          padding: 8px;
           overflow: hidden;
           overflow-y: scroll;
           resize: none;
@@ -95,6 +104,7 @@
           max-height: 98px;
           padding-right: 30px;
           width: 100%;
+          font-size: 16px;
         }
         .input:focus {
           background: #fafafa;
@@ -104,9 +114,12 @@
         .input::-webkit-scrollbar {
           width: 0;
         }
+        .input::placeholder {
+          font-family: inherit;
+          font-size: 16px;
+        }
 
         .add {
-          //display: none;
           background: #0000;
           position: absolute;
           right: 0;
@@ -122,6 +135,8 @@
             height: 28px;
             width: 28px;
             fill: #76b826;
+            stroke: #0000;
+            transition: 0.2s;
           }
         }
       }
@@ -129,6 +144,10 @@
       .addBoard:hover {
         .add {
           display: block;
+          * {
+            fill: #76b826;
+            stroke: #76b826;
+          }
         }
       }
     }
