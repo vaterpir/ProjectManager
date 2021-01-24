@@ -1,16 +1,39 @@
-.checkList :global{
+.checkList :global {
   border: 1px solid #333;
   padding: 8px;
   background: #fff;
 
-  .header-checklist{
+  .header-checklist {
     border: 1px solid #333;
     padding: 8px;
     margin-bottom: 8px;
   }
 
-  .content-checklist{
+  .content-checklist {
     border: 1px solid #333;
     padding: 8px;
+
+    .wrapper-add-checklist {
+      margin-top: 8px;
+    }
+
+    .wrapper-list-tasks {
+      margin-top: 8px;
+      padding: 8px;
+      border: 1px solid #333;
+
+      .list-tasks {
+        padding: 0;
+        margin: 0;
+
+        .task-checklist {
+          display: flex;
+          margin-bottom: 8px;
+        }
+        .task-checklist:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }

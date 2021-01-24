@@ -1,0 +1,41 @@
+.comments :global {
+  padding: 8px;
+  margin-top: 8px;
+  border: 1px solid #333;
+
+  .header-comments {
+    padding: 8px;
+    border: 1px solid #333;
+    margin-bottom: 8px;
+  }
+
+  .wrapper-comments {
+    margin-top: 8px;
+    padding: 8px;
+    border: 1px solid #333;
+
+    .title-comments {
+      margin-bottom: 8px;
+      position: relative;
+
+      .date-comments {
+        background: #eee;
+        padding: 0 10px;
+        border: 1px solid #333;
+        height: 16px;
+        min-width: 30px;
+        position: absolute;
+        top: 23px;
+        right: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+    }
+    .title-comments:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

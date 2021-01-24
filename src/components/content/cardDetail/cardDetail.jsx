@@ -7,6 +7,7 @@ import { deleteChildColumn } from 'actions/columns';
 import { DescriptionCard } from './descriptionCard';
 import { CheckList } from './checkList';
 import styles from './cardDetail.scss';
+import { CommentsList } from './comments';
 
 export const CardDetail = () => {
   const { cardId, boardId } = useParams();
@@ -24,7 +25,8 @@ export const CardDetail = () => {
       </div>
       <div className="content-card">
         <DescriptionCard description={card?.description} />
-        <CheckList list={card?.childs} />
+        <CheckList />
+        <CommentsList />
       </div>
     </div>
   );

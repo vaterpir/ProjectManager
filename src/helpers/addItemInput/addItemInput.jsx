@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-/* import AddIcon from '@material-ui/icons/Add'; */
 import { useDispatch } from 'react-redux';
 import AddToPhotosOutlinedIcon from '@material-ui/icons/AddToPhotosOutlined';
 import styles from './addItemInput.scss';

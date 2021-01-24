@@ -1,9 +1,11 @@
 import {
   ADD_CARD,
-  ADD_CHILD_CARD,
   DELETE_CARD,
   EDIT_TITLE_CARD,
-  DELETE_CHILD_CARD,
+  ADD_TASK_CARD,
+  DELETE_TASK_CARD,
+  DELETE_COMMENT_CARD,
+  ADD_COMMENT_CARD,
 } from '../constants/cards';
 
 export const addCard = (title, parent, newId) => ({
@@ -24,14 +26,26 @@ export const deleteCard = (deleteId) => ({
   deleteId,
 });
 
-export const addChildCard = (childID, parentId) => ({
-  type: ADD_CHILD_CARD,
+export const addTaskCard = (childID, parentId) => ({
+  type: ADD_TASK_CARD,
   childID,
   parentId,
 });
 
-export const deleteChildCard = (deleteId, parentId) => ({
-  type: DELETE_CHILD_CARD,
+export const deleteTaskCard = (deleteId, parentId) => ({
+  type: DELETE_TASK_CARD,
+  deleteId,
+  parentId,
+});
+
+export const addCommentCard = (childID, parentId) => ({
+  type: ADD_COMMENT_CARD,
+  childID,
+  parentId,
+});
+
+export const deleteCommentCard = (deleteId, parentId) => ({
+  type: DELETE_COMMENT_CARD,
   deleteId,
   parentId,
 });

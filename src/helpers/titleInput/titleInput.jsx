@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
-import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneOutlineRoundedIcon from '@material-ui/icons/DoneOutlineRounded';
 import classNames from 'classnames';
@@ -36,12 +35,15 @@ export const CustomInputTitle = ({
     } else if (disableInput && !blur) {
       setDisableInput(false);
       titleInput.current.focus();
+    } else {
+      setValue(element?.title);
+      setDisableInput(true);
     }
   };
 
   const handleDelete = () => {
     const { id, parent } = element;
-    dispatch(actionDelete(id));
+    dispatch(actionDelete(id, parent));
     if (actiondeleteChild) dispatch(actiondeleteChild(id, parent));
     history.push(url);
   };
