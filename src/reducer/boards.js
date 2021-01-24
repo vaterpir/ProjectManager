@@ -1,8 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 import {
   ADD_BOARD,
-  ADD_CHILD,
+  ADD_CHILD_BOARD,
   DELETE_BOARD,
+  DELETE_CHILD_BOARD,
   EDIT_TITLE_BOARD,
 } from '../constants/boards';
 
@@ -40,8 +41,33 @@ export const boardsReducer = (boards = initialState, action) => {
       return { ...newBoards };
     }
 
-    case ADD_CHILD: {
-      return { ...boards };
+    case DELETE_CHILD_BOARD: {
+      const { deleteId, parentId } = action;
+      const newChilds = boards[parentId].childs.filter(
+        (child) => child !== deleteId,
+      );
+      const newBoards = {
+        ...boards,
+        [parentId]: {
+          ...boards[parentId],
+          childs: newChilds,
+        },
+      };
+      return { ...newBoards };
+    }
+
+    case ADD_CHILD_BOARD: {
+      const { childID, parentId } = action;
+
+      const newBoards = {
+        ...boards,
+        [parentId]: {
+          ...boards[parentId],
+          childs: [...boards[parentId].childs, childID],
+        },
+      };
+
+      return { ...newBoards };
     }
 
     default:

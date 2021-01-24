@@ -1,1 +1,1 @@
-export { TitleInput } from './titleInput';
+export { CustomInputTitle } from './titleInput';

@@ -1,72 +1,40 @@
-import React, { useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
-import EditIcon from '@material-ui/icons/Edit';
-import SaveIcon from '@material-ui/icons/Save';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { deleteBoard, editTitleBoard } from '../../../actions/boards';
-import styles from './board.scss';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { CustomInputTitle } from 'helpers/titleInput';
+import { addChildBoard, deleteBoard, editTitleBoard } from 'actions/boards';
 import { Column } from './column';
+import styles from './board.scss';
+import { AddItemInput } from '../../../helpers/addItemInput/addItemInput';
+import { addColumn } from '../../../actions/columns';
 
 export const Board = () => {
-  const { id: boardID } = useParams();
-  const board = useSelector((state) => state.boards[boardID]);
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const titleInput = useRef(null);
-  const [disableInput, setDisableInput] = useState(true);
-  const [title, setTitle] = useState(board?.title);
-
-  const changeTitle = () => {
-    setTitle(titleInput.current.value);
-  };
-
-  const saveNewTitle = () => {
-    if (title) {
-      const { id } = board;
-      dispatch(editTitleBoard(id, title));
-      setDisableInput(!disableInput);
-    }
-  };
-
-  const handleDelete = () => {
-    const { id } = board;
-    dispatch(deleteBoard(id));
-    history.push('/home');
-  };
+  const { boardId } = useParams();
+  const board = useSelector((state) => state.boards[boardId]);
 
   return board ? (
     <div className={styles.board}>
       <div className="header">
-        <input
-          ref={titleInput}
-          type="text"
-          value={title}
-          onChange={changeTitle}
-          className="title"
-          disabled={disableInput}
-          onBlur={saveNewTitle}
+        <CustomInputTitle
+          element={board}
+          actionEdit={editTitleBoard}
+          actionDelete={deleteBoard}
+          url="/home"
         />
-        <button
-          type="button"
-          className="changeTitle"
-          onMouseDown={saveNewTitle}
-        >
-          {disableInput ? (
-            <EditIcon className="edit" />
-          ) : (
-            <SaveIcon className="save" />
-          )}
-        </button>
-        <button type="button" onClick={handleDelete}>
-          <DeleteIcon className="delete" />
-        </button>
       </div>
       <div className="content">
         {board.childs?.map((child) => (
           <Column key={child} id={child} />
         ))}
+        <div className="newColumn">
+          <div className="newTitle">
+            <AddItemInput
+              element={board}
+              actionAddChild={addChildBoard}
+              actionAddItem={addColumn}
+            />
+          </div>
+        </div>
       </div>
     </div>
   ) : (

@@ -1,5 +1,9 @@
 import {
-  ADD_BOARD, ADD_CHILD, DELETE_BOARD, EDIT_TITLE_BOARD,
+  ADD_BOARD,
+  ADD_CHILD_BOARD,
+  DELETE_BOARD,
+  EDIT_TITLE_BOARD,
+  DELETE_CHILD_BOARD,
 } from '../constants/boards';
 
 export const addBoard = (title) => ({
@@ -18,7 +22,14 @@ export const deleteBoard = (deleteId) => ({
   deleteId,
 });
 
-export const addChild = (childID) => ({
-  type: ADD_CHILD,
+export const addChildBoard = (childID, parentId) => ({
+  type: ADD_CHILD_BOARD,
   childID,
+  parentId,
+});
+
+export const deleteChildBoard = (deleteId, parentId) => ({
+  type: DELETE_CHILD_BOARD,
+  deleteId,
+  parentId,
 });

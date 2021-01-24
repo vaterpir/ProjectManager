@@ -1,115 +1,76 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useEffect, useRef, useState } from 'react';
-import classNames from 'classnames';
+import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import TextareaAutosize from 'react-textarea-autosize';
-import CloseIcon from '@material-ui/icons/Close';
+import { useHistory } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
-import CheckIcon from '@material-ui/icons/Check';
+import SaveIcon from '@material-ui/icons/Save';
+import DeleteIcon from '@material-ui/icons/Delete';
+import DoneOutlineRoundedIcon from '@material-ui/icons/DoneOutlineRounded';
+import classNames from 'classnames';
 import styles from './titleInput.scss';
-// import { textWithoutSpaces } from '../textWithoutSpaces';
 
-export const TitleInput = ({
-  name = '',
-  setTitle = '',
+export const CustomInputTitle = ({
+  element = {},
   actionEdit = {},
   actionDelete = {},
-  parentId = '',
-  openLink = false,
-  clasName = '',
+  actiondeleteChild = false,
+  url = '',
 }) => {
   const dispatch = useDispatch();
-  const [disabledInput, setDisabledInput] = useState(true);
-  const inputText = useRef(null);
+  const history = useHistory();
 
-  useEffect(() => {
-    if (!disabledInput) {
-      inputText.current.focus();
-    }
-  });
+  const titleInput = useRef(null);
+  const [value, setValue] = useState(element?.title);
+  const [disableInput, setDisableInput] = useState(true);
 
-  const saveInput = (event) => {
-    event.stopPropagation();
-    const notEmpty = true; // textWithoutSpaces(name);
-    setDisabledInput(true);
-    if (notEmpty) {
-      dispatch(actionEdit());
-      return;
-    }
-    setTitle(name);
-  };
-
-  const keyPress = (event) => {
-    if (event.code === 'Enter' || event.code === 'NumpadEnter') {
-      saveInput();
-    } else if (event.code === 'Escape') {
-      setTitle(name);
-      inputText.current.blur();
+  const changeTitle = () => {
+    if (!disableInput) {
+      setValue(titleInput.current.value);
     }
   };
 
-  const editInput = (event) => {
-    event.stopPropagation();
-    if (disabledInput) {
-      setDisabledInput(false);
+  const saveNewTitle = (blur) => () => {
+    if (value && !disableInput) {
+      const { id } = element;
+      dispatch(actionEdit(id, value));
+      setDisableInput(true);
+    } else if (disableInput && !blur) {
+      setDisableInput(false);
+      titleInput.current.focus();
     }
   };
-  const deleteInput = (event) => {
-    event.stopPropagation();
-    dispatch(actionDelete(parentId));
-  };
 
-  // eslint-disable-next-line max-len
-  const changeInput = (event) => (disabledInput ? name : setTitle(event.target.value));
-
-  const clickOnInput = () => {
-    if (disabledInput && openLink) {
-      openLink();
-    }
+  const handleDelete = () => {
+    const { id, parent } = element;
+    dispatch(actionDelete(id));
+    if (actiondeleteChild) dispatch(actiondeleteChild(id, parent));
+    history.push(url);
   };
 
   return (
-    <form className={styles.title}>
-      <TextareaAutosize
+    <div className={styles.title}>
+      <input
+        ref={titleInput}
         type="text"
-        className={classNames('input', { disabledLink: disabledInput }, clasName)}
-        ref={inputText}
-        onBlur={saveInput}
-        value={name}
-        onKeyDown={keyPress}
-        onChange={changeInput}
-        onMouseDown={(event) => {
-          if (disabledInput) {
-            event.stopPropagation();
-            event.preventDefault();
-          }
-        }}
-        onClick={clickOnInput}
-        placeholder="Без имени"
+        value={value}
+        onChange={changeTitle}
+        className={classNames('input', { disabled: disableInput })}
+        onBlur={saveNewTitle(true)}
       />
-      <div className="buttons">
-        <button
-          type="button"
-          className={classNames('button')}
-          onMouseDown={editInput}
-        >
-          {disabledInput ? (
-            <EditIcon className="edit" />
-          ) : (
-            <CheckIcon className="check" />
-          )}
-        </button>
-        <button
-          type="button"
-          className={classNames('button', 'delete')}
-          onClick={deleteInput}
-        >
-          <CloseIcon className="delete" />
-        </button>
-      </div>
-    </form>
+      <button
+        type="button"
+        className="changeTitle"
+        onClick={saveNewTitle(false)}
+      >
+        {disableInput ? (
+          <EditIcon className="editIcon" />
+        ) : (
+          <DoneOutlineRoundedIcon className="saveIcon" />
+        )}
+      </button>
+      <button type="button" className="delete" onClick={handleDelete}>
+        <DeleteIcon className="deleteIcon" />
+      </button>
+    </div>
   );
 };
-
-/*
- */
+/* <SaveIcon className="saveIcon" /> */

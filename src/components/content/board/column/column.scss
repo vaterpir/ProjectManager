@@ -1,24 +1,57 @@
 .column :global {
+  background: #eee;
   border: 1px solid #333;
-  min-width: 250px;
   padding: 8px;
+  min-width: 250px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   margin-right: 8px;
 
-  .header {
+  .header-column {
+    border: 1px solid #333;
+    background: #fff;
     padding: 8px;
   }
 
-  .content {
-    padding: 8px;
+  .content-column {
+    background: #fff;
     flex: 1;
+    margin-top: 8px;
+    padding: 8px;
+    border: 1px solid #333;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 
-    .list {
+    .cardBox {
       display: flex;
-      flex-direction: column;
+
+      .btn-more {
+        background: transparent;
+        border: 1px solid #333;
+        border-width: 1px 1px 1px 0;
+        height: 48px;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        background: lightgreen;
+        cursor: pointer;
+
+        transition: 0.5s;
+
+        * {
+          height: 30px;
+          width: 20px;
+          fill: darkslategrey;
+        }
+      }
+      .btn-more:hover {
+        background: lightseagreen;
+        * {
+          fill: darkslategrey;
+        }
+      }
     }
   }
 }

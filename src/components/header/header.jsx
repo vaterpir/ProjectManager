@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import HomeIcon from '@material-ui/icons/Home';
 import styles from './header.scss';
 
 export const Header = () => (
@@ -8,7 +8,7 @@ export const Header = () => (
     <div className="linkHeder">
       <Link to="/home">
         <div className="title">
-          <ViewModuleIcon />
+          <HomeIcon />
           <h3>Доски</h3>
         </div>
       </Link>

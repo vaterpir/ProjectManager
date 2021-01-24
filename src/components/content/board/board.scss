@@ -3,84 +3,39 @@
   padding: 8px;
   display: flex;
   flex-direction: column;
+  background: #eee;
 
   .header {
+    background: #fff;
     border: 1px solid #333;
     padding: 8px;
     display: flex;
     align-items: center;
-
-    .title {
-      height: 30px;
-      flex: 1;
-      margin: 0;
-      padding: 0;
-      padding-left: 8px;
-      border: 1px solid #333;
-      font-size: 18px;
-      background: #fafafa;
-    }
-    .title:focus {
-      background: #fafafa;
-    }
-    .title:disabled {
-      background: #eee;
-    }
-
-    .changeTitle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .edit {
-        margin: 0;
-        padding: 0;
-        height: 30px;
-        width: 30px;
-        border: 1px solid #333;
-        * {
-          fill: goldenrod;
-          stroke: #eee;
-          transition: stroke 0.5s;
-        }
-      }
-      .save {
-        margin: 0;
-        padding: 0;
-        height: 30px;
-        width: 30px;
-        border: 1px solid #333;
-        * {
-          stroke: #eee;
-          fill: mediumseagreen;
-        }
-      }
-    }
-    .delete {
-      margin: 0;
-      padding: 0;
-      height: 30px;
-      width: 30px;
-      border: 1px solid #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      * {
-        fill: tomato;
-        stroke: #eee;
-        stroke-width: 1px;
-      }
-    }
   }
 
   .content {
+    background: #fff;
     flex: 1;
     margin-top: 8px;
     padding: 8px;
     border: 1px solid #333;
     display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
 
-    
+    .newColumn {
+      background: #eee;
+      border: 1px solid #333;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+
+      min-width: 250px;
+      max-width: 300px;
+    }
+  }
+  .content::-webkit-scrollbar {
+    height: 0;
   }
 }
 

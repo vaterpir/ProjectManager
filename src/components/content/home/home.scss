@@ -5,7 +5,7 @@
   padding: 4px;
 
   .content {
-    background: #fefefe;
+    background: #eee;
     border: 1px solid #333;
     width: 50%;
     display: flex;
@@ -15,6 +15,11 @@
       display: flex;
       align-items: center;
       padding-left: 20px;
+      height: 65px;
+
+      h2{
+        margin: 0;
+      }
     }
 
     .list {
@@ -27,7 +32,7 @@
       justify-content: center;
 
       .preview {
-        background: #eee;
+        background: #fff;
         border: 1px solid #333;
         list-style-type: none;
         margin: 10px 20px;
@@ -92,12 +97,12 @@
         border: 1px solid #333;
 
         .input {
+          background: #fff;
           padding: 8px;
           overflow: hidden;
           overflow-y: scroll;
           resize: none;
           outline: none;
-          background: #eee;
           color: #333;
           border: 0px solid #595;
           min-height: 98px;
@@ -107,8 +112,9 @@
           font-size: 16px;
         }
         .input:focus {
-          background: #fafafa;
+          background: #fff;
           color: #333;
+          border: 1px solid #595;
         }
 
         .input::-webkit-scrollbar {

@@ -1,6 +1,8 @@
 .content :global{
   flex: 1;
   margin-top: 10px;
-  background: #eee;
+  background: #fff;
   border: 1px solid #333;
+  display: flex;
+  flex-direction: column;
 }

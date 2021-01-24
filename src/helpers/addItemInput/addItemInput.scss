@@ -1,47 +1,41 @@
-.addItem :global {
-  width: 100%;
-  height: 98px;
-  position: relative;
-  border: 0px solid #959;
-  padding-right: 30px;
-  background: #eee;
+.newTitle :global {
+  border: 1px solid #333;
+  background: #fff;
+  padding: 8px;
 
-  .input {
-    padding: 4px;
-    overflow: hidden;
-    resize: none;
-    outline: none;
-    background: #eee;
-    color: #333;
-    border: 0px solid #595;
-    min-height: 98px;
-    max-height: 98px;
-    padding-right: 30px;
-    width: 100%;
-    overflow-y: auto;
-  }
-  .input:focus {
-    background: #fafafa;
-    color: #333;
-  }
-
-  .button {
-    background: #0000;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 30px;
-    width: 30px;
-    margin: 0;
-    padding: 0;
-    border: 0px solid #eee;
-    outline: none;
-
-    * {
-      height: 28px;
-      width: 28px;
-      fill: #76b826;
+  .wrapper-addItem {
+    position: relative;
+    .newtitle-input {
+      background: #eee;
+      width: 100%;
+      height: 30px;
+      flex: 1;
+      margin: 0;
+      padding: 0;
+      padding-left: 8px;
+      padding-right: 40px;
+      border: 1px solid #333;
+      font-size: 18px;
+    }
+    .newtitle-input:focus {
+      background: #fefefe;
+    }
+    .newtitle-add {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      * {
+        fill: forestgreen;
+      }
     }
   }
 }
-

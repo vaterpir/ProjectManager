@@ -1,0 +1,21 @@
+.cardDetail :global {
+  flex: 1;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+
+  .header-card {
+    border: 1px solid #333;
+    padding: 8px;
+  }
+
+  .content-card {
+    flex: 1;
+    border: 1px solid #333;
+    padding: 8px;
+    margin-top: 8px;
+    height: 100%;
+    background: #eee;
+
+  }
+}
