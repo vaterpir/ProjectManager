@@ -11,19 +11,19 @@ const initialState = {
   column1: {
     id: 'column1',
     parent: 'board1',
-    title: 'column1',
+    title: 'Колонка 1',
     childs: ['card1', 'card3'],
   },
   column2: {
     id: 'column2',
     parent: 'board2',
-    title: 'column2',
+    title: 'Колонка 3',
     childs: ['card2'],
   },
   column3: {
     id: 'column3',
     parent: 'board1',
-    title: 'column3',
+    title: 'Колонка 3',
     childs: ['card4'],
   },
 };

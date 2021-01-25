@@ -6,41 +6,42 @@ import {
   DELETE_TASK_CARD,
   ADD_COMMENT_CARD,
   DELETE_COMMENT_CARD,
+  EDIT_DESCRIPTION_CARD,
 } from '../constants/cards';
 
 const initialState = {
   card1: {
     id: 'card1',
-    description: 'description1 description4 description4 description4 ',
+    description: 'Подробное описание карточки 1 ... ',
     parent: 'column1',
-    title: 'card1',
+    title: 'Карточка 1',
     tasks: ['task1', 'task5', 'task6'],
     comments: ['com1', 'com2'],
   },
   card2: {
     id: 'card2',
-    description: 'description2',
+    description: 'Подробное описание карточки 2 ...',
     parent: 'column2',
-    title: 'card2',
+    title: 'Карточка 2',
     tasks: ['task2'],
-    comments: ['com3'],
+    comments: [],
   },
   card3: {
     id: 'card3',
-    description: 'description3',
+    description: 'Подробное описание карточки 3 ...',
     parent: 'column1',
-    title: 'card3',
+    title: 'Карточка 3',
     tasks: ['task3'],
-    comments: ['com4'],
+    comments: [],
   },
 
   card4: {
     id: 'card4',
-    description: 'description4 description4 detion4 detion4 ',
+    description: 'Подробное описание карточки 4...  ',
     parent: 'column3',
-    title: 'card4',
+    title: 'Карточка 4',
     tasks: ['task4'],
-    comments: ['com5'],
+    comments: [],
   },
 };
 
@@ -53,8 +54,10 @@ export const cardsReducer = (cards = initialState, action) => {
         [newId]: {
           id: newId,
           title,
+          description: '...',
           parent,
-          childs: [],
+          tasks: [],
+          comments: [],
         },
       };
       return { ...newCards };
@@ -119,6 +122,11 @@ export const cardsReducer = (cards = initialState, action) => {
         },
       };
       return { ...newCards };
+    }
+
+    case EDIT_DESCRIPTION_CARD: {
+      const card = { ...cards[action.id] };
+      return { ...cards, [card.id]: { ...card, description: action.title } };
     }
 
     default:

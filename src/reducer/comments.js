@@ -9,13 +9,13 @@ const initialState = {
   com1: {
     id: 'com1',
     parent: 'card1',
-    title: 'com1-tilte',
+    title: 'Комментарий номер 1',
     date: '0',
   },
   com2: {
     id: 'com2',
     parent: 'card1',
-    title: 'com2-tilte',
+    title: 'Комментарий номер 2',
     checked: false,
     date: '1',
   },
@@ -31,7 +31,7 @@ export const commentsReducer = (comments = initialState, action) => {
           id: newId,
           title,
           parent,
-          date: moment().format('MMMM Do YYYY, h:mm:ss a'),
+          date: moment().lang('ru').format('DD.MM.YYYY, h:mm a'),
         },
       };
       return { ...newComments };

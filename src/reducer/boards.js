@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   ADD_BOARD,
   ADD_CHILD_BOARD,
+  CHANGE_STATUS_FAVORITES_BOARD,
   DELETE_BOARD,
   DELETE_CHILD_BOARD,
   EDIT_TITLE_BOARD,
@@ -10,12 +11,14 @@ import {
 const initialState = {
   board1: {
     id: 'board1',
-    title: 'board1',
+    title: 'Доска 1',
+    favorites: true,
     childs: ['column1', 'column3'],
   },
   board2: {
     id: 'board2',
-    title: 'board2',
+    title: 'Доска 2',
+    favorites: false,
     childs: ['column2'],
   },
 };
@@ -26,7 +29,7 @@ export const boardsReducer = (boards = initialState, action) => {
       const newID = uuidv4();
       const newBoards = {
         ...boards,
-        [newID]: { id: newID, title: action.title },
+        [newID]: { id: newID, title: action.title, childs: [] },
       };
       return { ...newBoards };
     }
@@ -68,6 +71,12 @@ export const boardsReducer = (boards = initialState, action) => {
       };
 
       return { ...newBoards };
+    }
+
+    case CHANGE_STATUS_FAVORITES_BOARD: {
+      const { id } = action;
+      const newFavorites = !boards[id].favorites;
+      return { ...boards, [id]: { ...boards[id], favorites: newFavorites } };
     }
 
     default:

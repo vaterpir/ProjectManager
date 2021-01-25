@@ -6,6 +6,7 @@ import {
   DELETE_TASK_CARD,
   DELETE_COMMENT_CARD,
   ADD_COMMENT_CARD,
+  EDIT_DESCRIPTION_CARD,
 } from '../constants/cards';
 
 export const addCard = (title, parent, newId) => ({
@@ -17,6 +18,12 @@ export const addCard = (title, parent, newId) => ({
 
 export const editTitleCard = (id, title) => ({
   type: EDIT_TITLE_CARD,
+  id,
+  title,
+});
+
+export const editDescriptiomCard = (id, title) => ({
+  type: EDIT_DESCRIPTION_CARD,
   id,
   title,
 });

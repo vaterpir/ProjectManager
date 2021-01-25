@@ -3,22 +3,26 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import DoneOutlineRoundedIcon from '@material-ui/icons/DoneOutlineRounded';
+import ClearRoundedIcon from '@material-ui/icons/ClearRounded';
+import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
+import TextareaAutosize from 'react-textarea-autosize';
 import classNames from 'classnames';
 import styles from './titleInput.scss';
 
 export const CustomInputTitle = ({
   element = {},
-  actionEdit = {},
-  actionDelete = {},
+  actionEdit = false,
+  actionDelete = false,
   actiondeleteChild = false,
-  url = '',
+  url = '#',
+  linkUrl = '#',
+  valueInput = 'title',
 }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const titleInput = useRef(null);
-  const [value, setValue] = useState(element?.title);
+  const [value, setValue] = useState(element[valueInput]);
   const [disableInput, setDisableInput] = useState(true);
 
   const changeTitle = () => {
@@ -27,7 +31,8 @@ export const CustomInputTitle = ({
     }
   };
 
-  const saveNewTitle = (blur) => () => {
+  const saveNewTitle = (blur) => (event) => {
+    event.stopPropagation();
     if (value && !disableInput) {
       const { id } = element;
       dispatch(actionEdit(id, value));
@@ -36,7 +41,7 @@ export const CustomInputTitle = ({
       setDisableInput(false);
       titleInput.current.focus();
     } else {
-      setValue(element?.title);
+      setValue(element[valueInput]);
       setDisableInput(true);
     }
   };
@@ -48,31 +53,43 @@ export const CustomInputTitle = ({
     history.push(url);
   };
 
+  const handleClickOnLink = (event) => {
+    if (disableInput) {
+      history.push(linkUrl);
+      return;
+    }
+    event.stopPropagation();
+  };
+
   return (
     <div className={styles.title}>
-      <input
+      <TextareaAutosize
         ref={titleInput}
         type="text"
         value={value}
         onChange={changeTitle}
         className={classNames('input', { disabled: disableInput })}
         onBlur={saveNewTitle(true)}
+        onClick={handleClickOnLink}
       />
       <button
         type="button"
-        className="changeTitle"
+        className={classNames('changeTitle', { noDelete: !actionDelete })}
         onClick={saveNewTitle(false)}
       >
         {disableInput ? (
           <EditIcon className="editIcon" />
         ) : (
-          <DoneOutlineRoundedIcon className="saveIcon" />
+          <DoneRoundedIcon className="saveIcon" />
         )}
       </button>
-      <button type="button" className="delete" onClick={handleDelete}>
-        <DeleteIcon className="deleteIcon" />
-      </button>
+      {valueInput === 'description' ? (
+        ''
+      ) : (
+        <button type="button" className="delete" onClick={handleDelete}>
+          <ClearRoundedIcon className="deleteIcon" />
+        </button>
+      )}
     </div>
   );
 };
-/* <SaveIcon className="saveIcon" /> */

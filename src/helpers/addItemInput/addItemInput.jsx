@@ -2,12 +2,14 @@ import React, { useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import AddToPhotosOutlinedIcon from '@material-ui/icons/AddToPhotosOutlined';
+import TextareaAutosize from 'react-textarea-autosize';
 import styles from './addItemInput.scss';
 
 export const AddItemInput = ({
   element = '',
   actionAddChild = false,
   actionAddItem = false,
+  placeholder = '...',
 }) => {
   const dispatch = useDispatch();
   const titleInput = useRef(null);
@@ -31,10 +33,10 @@ export const AddItemInput = ({
   return (
     <div className={styles.newTitle}>
       <div className="wrapper-addItem">
-        <input
+        <TextareaAutosize
           ref={titleInput}
           type="text"
-          placeholder="Введите название"
+          placeholder={placeholder}
           className="newtitle-input"
           value={newTitle}
           onChange={changeNewTitle}

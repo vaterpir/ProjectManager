@@ -18,27 +18,30 @@ export const CommentsList = () => {
 
   return (
     <div className={styles.comments}>
-      <div className="header-comments"> Комментарии: </div>
+      <div className="header-comments">
+        <h3> Комментарии:</h3>
+      </div>
       <div className="add-comments">
         <AddItemInput
           element={card}
           actionAddChild={addCommentCard}
           actionAddItem={addComment}
+          placeholder="Оставить комментарий"
         />
       </div>
       {commentsList.length ? (
         <div className="wrapper-comments">
           {commentsList.map((comment) => (
-            <div key={comment?.id} className="title-comments">
-              <CustomInputTitle
-                element={comment}
-                actionEdit={editTitleComment}
-                actionDelete={deleteComment}
-                actiondeleteChild={deleteCommentCard}
-                url="#"
-              />
-              <div className="date-comments">
-                {comment.date}
+            <div className="wrapper-title-comments" key={comment?.id}>
+              <div className="title-comments">
+                <CustomInputTitle
+                  element={comment}
+                  actionEdit={editTitleComment}
+                  actionDelete={deleteComment}
+                  actiondeleteChild={deleteCommentCard}
+                  url="#"
+                />
+                <div className="date-comments">{comment?.date}</div>
               </div>
             </div>
           ))}

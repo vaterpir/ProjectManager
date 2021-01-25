@@ -1,20 +1,28 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { CustomInputTitle } from 'helpers/titleInput';
 import { addChildBoard, deleteBoard, editTitleBoard } from 'actions/boards';
+import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
 import { Column } from './column';
-import styles from './board.scss';
 import { AddItemInput } from '../../../helpers/addItemInput/addItemInput';
 import { addColumn } from '../../../actions/columns';
+import styles from './board.scss';
 
 export const Board = () => {
   const { boardId } = useParams();
   const board = useSelector((state) => state.boards[boardId]);
+  const history = useHistory();
 
+  const handleBack = () => {
+    history.push('/home');
+  };
   return board ? (
     <div className={styles.board}>
       <div className="header">
+        <button type="button" className="btn-back" onClick={handleBack}>
+          <ArrowBackRoundedIcon />
+        </button>
         <CustomInputTitle
           element={board}
           actionEdit={editTitleBoard}
@@ -26,12 +34,13 @@ export const Board = () => {
         {board.childs?.map((child) => (
           <Column key={child} id={child} />
         ))}
-        <div className="newColumn">
-          <div className="newTitle">
+        <div className="wrapper-newColumn">
+          <div className="newColumn">
             <AddItemInput
               element={board}
               actionAddChild={addChildBoard}
               actionAddItem={addColumn}
+              placeholder="Добавить колонку"
             />
           </div>
         </div>

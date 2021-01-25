@@ -2,157 +2,248 @@
   display: flex;
   justify-content: center;
   height: 100%;
-  padding: 4px;
+  padding: 0 4px;
+  border-radius: 4px;
+  overflow: hidden;
 
   .content {
-    background: #eee;
-    border: 1px solid #333;
-    width: 50%;
+    border-radius: 4px;
+    border: 0px solid #333;
+    background: #444;
+    max-width: 800px;
+    height: 100%;
+    overflow: hidden;
+    @media (max-width: 500px) {
+      max-width: 300px;
+    }
     display: flex;
     flex-direction: column;
+    padding: 10px;
 
     .header {
+      box-shadow: 0px 0px 3px 0px rgb(155, 155, 155);
       display: flex;
       align-items: center;
-      padding-left: 20px;
-      height: 65px;
+      justify-content: flex-start;
+      border: 1px solid #bbb;
+      padding: 0px 10px;
+      min-height: 60px;
+      background: #aaa;
+      border-radius: 4px;
 
-      h2{
+      h2 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
         margin: 0;
+        padding: 8px;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 30px;
+        font-weight: 800;
+        text-shadow: 0px 0px 3px #fff;
+        line-height: 1;
+      }
+
+      .filter-favorites {
+        border-radius: 4px;
+        background: #666;
+        color: #333;
+        border: 1px solid #555;
+        height: 40px;
+        width: 40px;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        transition: 0.2s;
+        * {
+          padding: 0;
+          margin: 0;
+          height: 39px;
+          width: 39px;
+          stroke: rgb(238, 215, 10);
+          stroke-width: 0.3px;
+          fill: goldenrod;
+        }
+      }
+      .filter-favorites:hover {
+        background: #555;
+        border: 1px solid #333;
+      }
+      .filter-favorites:focus {
+        background: #444;
+        border: 1px solid #fff;
       }
     }
-
-    .list {
-      margin-left: 0;
-      padding-left: 0;
-      flex: 1;
+    .wrapper-list {
+      margin-top: 10px;
+      height: 100%;
+      overflow: hidden;
+      overflow-y: scroll;
       display: flex;
-      flex-wrap: wrap;
-      flex-grow: initial;
-      justify-content: center;
+      align-items: flex-start;
+      padding: 10px;
 
-      .preview {
-        background: #fff;
-        border: 1px solid #333;
-        list-style-type: none;
-        margin: 10px 20px;
-        width: 180px;
-        height: 100px;
-        position: relative;
-        overflow: hidden;
-        overflow-wrap: break-word;
-        padding-right: 16px;
+      .list {
+        margin-left: 0;
+        padding-left: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
 
-        .title {
-          padding: 8px;
-          border: 0px solid #000;
-          width: 100%;
-          height: 100%;
-          overflow-y: scroll;
-        }
-        .title::-webkit-scrollbar {
-          width: 0;
-        }
-        .delete {
-          background: transparent;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: absolute;
-          top: 0;
-          right: 0;
-          margin: 0;
-          padding: 0;
-          width: 25px;
-          height: 25px;
-          border: 0px solid #333;
-
-          * {
-            background: transparent;
-            fill: tomato;
-            stroke: #0000;
-            transition: 0.2s;
-          }
-        }
-      }
-
-      .preview:hover {
-        .delete {
-          background: transparent;
-          outline: none;
-
-          * {
-            background: transparent;
-            stroke: tomato;
-            fill: tomato;
-          }
-        }
-      }
-      .addBoard {
-        list-style-type: none;
-        margin: 10px 20px;
-        width: 180px;
-        height: 100px;
-        position: relative;
-        border: 1px solid #333;
-
-        .input {
-          background: #fff;
-          padding: 8px;
+        .preview {
+          box-shadow: 0px 0px 5px 0px rgb(50, 50, 50);
+          background: #333;
+          border: 1px solid #333;
+          list-style-type: none;
+          margin: 10px 20px;
+          width: 180px;
+          height: 100px;
+          position: relative;
           overflow: hidden;
-          overflow-y: scroll;
-          resize: none;
-          outline: none;
-          color: #333;
-          border: 0px solid #595;
-          min-height: 98px;
-          max-height: 98px;
-          padding-right: 30px;
-          width: 100%;
-          font-size: 16px;
-        }
-        .input:focus {
-          background: #fff;
-          color: #333;
-          border: 1px solid #595;
-        }
+          overflow-wrap: break-word;
+          padding: 1px;
+          padding-right: 25px;
+          border-radius: 4px;
 
-        .input::-webkit-scrollbar {
-          width: 0;
-        }
-        .input::placeholder {
-          font-family: inherit;
-          font-size: 16px;
-        }
+          .title {
+            background: #555;
+            color: #fff;
+            padding: 8px;
+            border: 0px solid #000;
+            border-radius: 4px 0 0 4px;
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+          }
+          .title::-webkit-scrollbar {
+            width: 0;
+          }
+          .delete {
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            width: 25px;
+            height: 25px;
+            border: 0px solid #333;
 
-        .add {
-          background: #0000;
-          position: absolute;
-          right: 0;
-          top: 0;
-          height: 30px;
-          width: 30px;
-          margin: 0;
-          padding: 0;
-          border: 0px solid #eee;
-          outline: none;
+            * {
+              background: transparent;
+              fill: tomato;
+              stroke: #0000;
+              transition: 0.2s;
+            }
+          }
 
-          * {
-            height: 28px;
-            width: 28px;
-            fill: #76b826;
-            stroke: #0000;
-            transition: 0.2s;
+          .favorites {
+            background: transparent;
+            position: absolute;
+            right: 0;
+            bottom: 4px;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            * {
+              background: transparent;
+              width: 25px;
+              height: 25px;
+              fill: goldenrod;
+            }
           }
         }
-      }
 
-      .addBoard:hover {
-        .add {
-          display: block;
-          * {
-            fill: #76b826;
-            stroke: #76b826;
+        .preview:hover {
+          .delete {
+            background: transparent;
+            outline: none;
+
+            * {
+              background: transparent;
+              stroke: tomato;
+              fill: tomato;
+            }
+          }
+        }
+        .addBoard {
+          list-style-type: none;
+          margin: 10px 20px;
+          width: 180px;
+          height: 100px;
+          position: relative;
+          border: 1px solid #333;
+          border-radius: 4px;
+          overflow: hidden;
+
+          .input {
+            background: #555;
+            color: #fff;
+            padding: 8px;
+            overflow: hidden;
+            overflow-y: scroll;
+            resize: none;
+            outline: none;
+            border: 0px solid #595;
+            min-height: 98px;
+            max-height: 98px;
+            padding-right: 30px;
+            width: 100%;
+            font-size: 16px;
+          }
+          .input:focus {
+            background: #fff;
+            color: #333;
+            border: 1px solid #595;
+          }
+
+          .input::-webkit-scrollbar {
+            width: 0;
+          }
+          .input::placeholder {
+            font-family: inherit;
+            font-size: 16px;
+          }
+
+          .add {
+            background: #0000;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 30px;
+            width: 30px;
+            margin: 0;
+            padding: 0;
+            border: 0px solid #eee;
+            outline: none;
+
+            * {
+              height: 28px;
+              width: 28px;
+              fill: #76b826;
+              stroke: #0000;
+              transition: 0.2s;
+            }
+          }
+        }
+
+        .addBoard:hover {
+          .add {
+            display: block;
+            * {
+              fill: #76b826;
+              stroke: #76b826;
+            }
           }
         }
       }

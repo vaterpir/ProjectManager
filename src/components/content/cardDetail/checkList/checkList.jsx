@@ -18,13 +18,16 @@ export const CheckList = () => {
 
   return (
     <div className={styles.checkList}>
-      <div className="header-checklist">Список задач:</div>
+      <div className="header-checklist">
+        <h3>Список задач:</h3>
+      </div>
       <div className="content-checklist">
         <div className="wrapper-add-checklist">
           <AddItemInput
             element={card}
             actionAddItem={addTask}
             actionAddChild={addTaskCard}
+            placeholder="Добавить задачу"
           />
         </div>
         {checklist.length ? (

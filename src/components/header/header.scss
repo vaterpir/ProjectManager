@@ -1,24 +1,32 @@
 .header :global {
-  background: #fff;
+  background: rgb(83, 89, 99);
   border: 1px solid #333;
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+
   .linkHeder {
     display: flex;
     align-items: center;
+    padding-left: 10px;
 
     .title {
       margin: 4px;
       display: flex;
       align-items: center;
       height: 30px;
-      color: #333;
 
       h3 {
+        color: #eee;
         margin: 0;
         padding: 0;
       }
 
       * {
         margin-right: 4px;
+        fill: #eee;
       }
     }
   }

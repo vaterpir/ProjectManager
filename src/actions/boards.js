@@ -4,6 +4,7 @@ import {
   DELETE_BOARD,
   EDIT_TITLE_BOARD,
   DELETE_CHILD_BOARD,
+  CHANGE_STATUS_FAVORITES_BOARD,
 } from '../constants/boards';
 
 export const addBoard = (title) => ({
@@ -32,4 +33,9 @@ export const deleteChildBoard = (deleteId, parentId) => ({
   type: DELETE_CHILD_BOARD,
   deleteId,
   parentId,
+});
+
+export const changeStatusFavorites = (id) => ({
+  type: CHANGE_STATUS_FAVORITES_BOARD,
+  id,
 });

@@ -1,5 +1,5 @@
 .checkButton :global{
-  border: 1px solid #333;
+  background: transparent;
   height: 30px;
   width: 30px;
   display: flex;
@@ -8,6 +8,8 @@
   margin-right: 8px;
 
   *{
-    fill: green;
+    height: 100%;
+    width: 100%;
+    fill: #7f7;
   }
 }

@@ -3,19 +3,44 @@
   padding: 8px;
   display: flex;
   flex-direction: column;
+  background: #556;
+  border-radius: 4px;
 
   .header-card {
-    border: 1px solid #333;
     padding: 8px;
+    color: ivory;
+    font-size: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+
+    .btn-back {
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      * {
+        height: 30px;
+        width: 30px;
+        fill: whitesmoke;
+        stroke: whitesmoke;
+        stroke-width: 1.5px;
+      }
+    }
+    .btn-back:hover {
+      cursor: pointer;
+    }
   }
 
   .content-card {
+    background: #3a3a44;
     flex: 1;
-    border: 1px solid #333;
     padding: 8px;
     margin-top: 8px;
     height: 100%;
-    background: #eee;
-
+    border-radius: 4px;
   }
 }

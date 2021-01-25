@@ -13,12 +13,6 @@ import styles from './column.scss';
 export const Column = ({ id = '' }) => {
   const column = useSelector((state) => state.columns[id]);
 
-  const history = useHistory();
-
-  const handleDetail = (cardId = '') => () => {
-    history.push(`/boards/${column.parent}/${column.id}/${cardId}`);
-  };
-
   return (
     <div className={styles.column}>
       <div className="header-column">
@@ -33,21 +27,19 @@ export const Column = ({ id = '' }) => {
       <div className="content-column">
         {column?.childs.map((card) => (
           <div className="cardBox" key={card}>
-            <Card id={card} />
-            <button
-              type="button"
-              className="btn-more"
-              onClick={handleDetail(card)}
-            >
-              <ExitToAppOutlinedIcon />
-            </button>
+            <div type="button" className="btn-card">
+              <Card id={card} />
+            </div>
           </div>
         ))}
-        <AddItemInput
-          element={column}
-          actionAddChild={addChildColumn}
-          actionAddItem={addCard}
-        />
+        <div className="add-card">
+          <AddItemInput
+            element={column}
+            actionAddChild={addChildColumn}
+            actionAddItem={addCard}
+            placeholder="Добавить карточку"
+          />
+        </div>
       </div>
     </div>
   );
