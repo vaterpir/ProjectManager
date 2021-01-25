@@ -1,0 +1,60 @@
+.newTitle :global {
+  border: 0px solid #333;
+  overflow: hidden;
+  border-radius: 4px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: inherit;
+
+  .wrapper-addItem {
+    background: inherit;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .newtitle-input {
+      background: inherit;
+      overflow: hidden;
+      resize: none;
+      width: 100%;
+      height: 100%;
+      flex: 1;
+      margin: 0;
+      padding: 6px 10px;
+      padding-right: 30px;
+      border: 0px solid #333;
+      font-size: 18px;
+      border-radius: 4px;
+    }
+    .newtitle-input:focus {
+      background: #fefefe;
+    }
+    .newtitle-add {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 24px;
+      height: 24px;
+      border: 0px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      * {
+        width: 100%;
+        height: 100%;
+        fill: forestgreen;
+      }
+    }
+  }
+}

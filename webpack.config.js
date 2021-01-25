@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
+    publicPath: '',
   },
   resolve: {
     extensions: ['.jsx', '.js', '.scss', '.css'],
@@ -14,6 +15,7 @@ module.exports = {
       images: path.resolve('src/images'),
       actions: path.resolve('src/actions'),
       styles: path.resolve('src/styles'),
+      helpers: path.resolve('src/helpers'),
     },
   },
   module: {
@@ -81,6 +83,7 @@ module.exports = {
     clientLogLevel: 'silent',
     port: 3000,
     hot: true,
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({

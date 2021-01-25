@@ -1,0 +1,58 @@
+.checkList :global {
+  padding: 8px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #666;
+  margin-bottom: 16px;
+
+  .header-checklist {
+    border: 1px solid #333;
+    padding: 8px;
+    background: #cfc;
+    background: #333;
+    border-radius: 4px;
+    h3 {
+      color: whitesmoke;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .content-checklist {
+    overflow: hidden;
+    border-radius: 4px;
+    margin-top: 8px;
+
+    .wrapper-add-checklist {
+      overflow: hidden;
+      border-radius: 4px;
+      background: #ccc;
+    }
+
+    .wrapper-list-tasks {
+      margin-top: 8px;
+      padding: 8px;
+      overflow: hidden;
+      border-radius: 4px;
+
+      .list-tasks {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 4px;
+
+        .task-checklist {
+          display: flex;
+          margin-bottom: 8px;
+          background: #444;
+          color: #fff;
+          overflow: hidden;
+          border-radius: 4px;
+        }
+        .task-checklist:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

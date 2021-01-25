@@ -1,19 +1,14 @@
 import { combineReducers } from 'redux';
-
-import { boardsReducer } from './boardsReducer';
-import { cardsReducer } from './cardsReducer';
-import { checklistsReducer } from './checklistsReducer';
-import { tasksReducer } from './tasksReducer';
-import { commentsReducer } from './commentsReduecer';
-import { labelsReducer } from './labelsReducer';
-import { inputOnFocusReducer } from './focusInputReducer';
+import { boardsReducer } from './boards';
+import { cardsReducer } from './cards';
+import { columnsReducer } from './columns';
+import { commentsReducer } from './comments';
+import { tasksReducer } from './tasks';
 
 export const rootReducer = combineReducers({
   boards: boardsReducer,
+  columns: columnsReducer,
   cards: cardsReducer,
-  checklists: checklistsReducer,
   tasks: tasksReducer,
   comments: commentsReducer,
-  labels: labelsReducer,
-  inputOnFocus: inputOnFocusReducer,
 });

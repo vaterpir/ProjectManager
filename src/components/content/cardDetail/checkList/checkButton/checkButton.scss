@@ -1,0 +1,15 @@
+.checkButton :global{
+  background: transparent;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+
+  *{
+    height: 100%;
+    width: 100%;
+    fill: #7f7;
+  }
+}
