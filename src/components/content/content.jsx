@@ -15,8 +15,12 @@ export const Content = () => (
         exact
         component={CardDetail}
       />
-      <Redirect from="/boards/:boardId/:columnId" exact to="/boards/:boardId" />
-      <Redirect from="/" to="/home" />
+      <Redirect
+        from="/ProjectManager/boards/:boardId/:columnId"
+        exact
+        to="/boards/:boardId"
+      />
+      <Redirect from="" to="/ProjectManager/home" />
     </Switch>
   </div>
 );
