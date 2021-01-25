@@ -1,6 +1,6 @@
 import React from 'react';
-import { editDescriptiomCard } from '../../../../actions/cards';
-import { CustomInputTitle } from '../../../../helpers/titleInput/titleInput';
+import { CustomInputTitle } from 'helpers/titleInput/titleInput';
+import { editDescriptiomCard } from 'actions/cards';
 import styles from './descriptionCard.scss';
 
 export const DescriptionCard = ({ card = '' }) => (

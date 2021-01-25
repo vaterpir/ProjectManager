@@ -6,7 +6,7 @@ import styles from './header.scss';
 export const Header = () => (
   <div className={styles.header}>
     <div className="linkHeder">
-      <Link to="/home">
+      <Link to="/#home">
         <div className="title">
           <HomeIcon />
           <h3>Доски</h3>

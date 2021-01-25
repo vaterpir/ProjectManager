@@ -8,12 +8,12 @@ import TextareaAutosize from 'react-textarea-autosize';
 import StarOutlineRoundedIcon from '@material-ui/icons/StarOutlineRounded';
 
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
-import styles from './home.scss';
 import {
   addBoard,
   changeStatusFavorites,
   deleteBoard,
-} from '../../../actions/boards';
+} from 'actions/boards';
+import styles from './home.scss';
 
 export const Home = () => {
   const dispatch = useDispatch();
