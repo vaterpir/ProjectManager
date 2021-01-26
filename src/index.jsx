@@ -9,11 +9,11 @@ import { store } from './store';
 const customHistory = createBrowserHistory();
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter basename="/ProjectManager">
-      <Router history={customHistory}>
-        <App />
-      </Router>
-    </HashRouter>
+    {/* <HashRouter basename="/ProjectManager"> */}
+    <Router history={customHistory}>
+      <App />
+    </Router>
+    {/* </HashRouter> */}
   </Provider>,
   document.getElementById('root'),
 );

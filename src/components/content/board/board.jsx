@@ -15,7 +15,7 @@ export const Board = () => {
   const history = useHistory();
 
   const handleBack = () => {
-    history.push('/home');
+    history.push('/ProjectManager');
   };
   return board ? (
     <div className={styles.board}>
@@ -27,7 +27,7 @@ export const Board = () => {
           element={board}
           actionEdit={editTitleBoard}
           actionDelete={deleteBoard}
-          url="/home"
+          url="/ProjectManager"
         />
       </div>
       <div className="content">

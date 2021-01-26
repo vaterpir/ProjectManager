@@ -1,18 +1,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import CloseIcon from '@material-ui/icons/Close';
 import AddIcon from '@material-ui/icons/Add';
 import TextareaAutosize from 'react-textarea-autosize';
 import StarOutlineRoundedIcon from '@material-ui/icons/StarOutlineRounded';
-
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
-import {
-  addBoard,
-  changeStatusFavorites,
-  deleteBoard,
-} from 'actions/boards';
+import { addBoard } from 'actions/boards';
+import { BoardMini } from './boardMini';
 import styles from './home.scss';
 
 export const Home = () => {
@@ -26,20 +20,12 @@ export const Home = () => {
     setValueInput(inputElement.current.value);
   };
 
-  const handleDelete = (id) => () => {
-    dispatch(deleteBoard(id));
-  };
-
   const handleAdd = () => {
     setFilter(false);
     if (valueInput) {
       dispatch(addBoard(valueInput));
       setValueInput('');
     }
-  };
-
-  const setFavorites = (id) => () => {
-    dispatch(changeStatusFavorites(id));
   };
 
   const filterFavorites = () => {
@@ -63,58 +49,10 @@ export const Home = () => {
           <ul className="list">
             {Object.entries(boards).map(([id, board]) => {
               if (filter && board.favorites) {
-                return (
-                  <li className="preview" key={id}>
-                    <Link to={`/boards/${id}`}>
-                      <div className="title">{board.title}</div>
-                    </Link>
-                    <button
-                      type="button"
-                      className="delete"
-                      onClick={handleDelete(id)}
-                    >
-                      <CloseIcon />
-                    </button>
-                    <button
-                      type="button"
-                      className="favorites"
-                      onClick={setFavorites(id)}
-                    >
-                      {board.favorites ? (
-                        <StarRoundedIcon />
-                      ) : (
-                        <StarOutlineRoundedIcon />
-                      )}
-                    </button>
-                  </li>
-                );
+                return <BoardMini key={id} board={board} />;
               }
               if (filter && !board.favorites) return '';
-              return (
-                <li className="preview" key={id}>
-                  <Link to={`/boards/${id}`}>
-                    <div className="title">{board.title}</div>
-                  </Link>
-                  <button
-                    type="button"
-                    className="delete"
-                    onClick={handleDelete(id)}
-                  >
-                    <CloseIcon />
-                  </button>
-                  <button
-                    type="button"
-                    className="favorites"
-                    onClick={setFavorites(id)}
-                  >
-                    {board.favorites ? (
-                      <StarRoundedIcon />
-                    ) : (
-                      <StarOutlineRoundedIcon />
-                    )}
-                  </button>
-                </li>
-              );
+              return <BoardMini key={id} board={board} />;
             })}
             <li className="addBoard">
               <TextareaAutosize
@@ -135,31 +73,3 @@ export const Home = () => {
     </div>
   );
 };
-
-/*
-(
-            <li className="preview" key={id}>
-              <Link to={`/boards/${id}`}>
-                <div className="title">{board.title}</div>
-              </Link>
-              <button
-                type="button"
-                className="delete"
-                onClick={handleDelete(id)}
-              >
-                <CloseIcon />
-              </button>
-              <button
-                type="button"
-                className="favorites"
-                onClick={setFavorites(id)}
-              >
-                {board.favorites ? (
-                  <StarRoundedIcon />
-                ) : (
-                  <StarOutlineRoundedIcon />
-                )}
-              </button>
-            </li>
-          )
-*/

@@ -18,7 +18,7 @@ export const Card = ({ id = '' }) => {
           actionDelete={deleteCard}
           actiondeleteChild={deleteChildColumn}
           url={false}
-          linkUrl={`/boards/${boardId}/${card.parent}/${id}`}
+          linkUrl={`/ProjectManager/${boardId}/${card.parent}/${id}`}
         />
       </div>
     </div>

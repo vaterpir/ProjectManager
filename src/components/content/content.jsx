@@ -8,19 +8,18 @@ import styles from './content.scss';
 export const Content = () => (
   <div className={styles.content}>
     <Switch>
-      <Route path="/boards/:boardId" exact component={Board} />
-      <Route path="/home/" component={Home} />
+      <Route path="/ProjectManager/:boardId" exact component={Board} />
+      <Route path="/ProjectManager" exact component={Home} />
       <Route
-        path="/boards/:boardId/:columnId/:cardId"
+        path="/ProjectManager/:boardId/:columnId/:cardId"
         exact
         component={CardDetail}
       />
       <Redirect
-        from="/boards/:boardId/:columnId"
-        exact
-        to="/boards/:boardId"
+        from="/ProjectManager/:boardId/:columnId"
+        to="/ProjectManager/:boardId"
       />
-      <Redirect from="/" to="/home" />
+      <Redirect from="" to="/ProjectManager" />
     </Switch>
   </div>
 );

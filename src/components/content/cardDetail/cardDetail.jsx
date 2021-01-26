@@ -16,7 +16,7 @@ export const CardDetail = () => {
   const history = useHistory();
 
   const handleBack = () => {
-    history.push(`/boards/${boardId}`);
+    history.push(`/ProjectManager/${boardId}`);
   };
 
   return (
@@ -30,7 +30,7 @@ export const CardDetail = () => {
           actionEdit={editTitleCard}
           actionDelete={deleteCard}
           actiondeleteChild={deleteChildColumn}
-          url={`/boards/${boardId}`}
+          url={`/ProjectManager/${boardId}`}
         />
       </div>
       <div className="content-card">

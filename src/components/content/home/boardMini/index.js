@@ -1,0 +1,1 @@
+export { BoardMini } from './boardMini';
